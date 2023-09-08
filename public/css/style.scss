@@ -1,0 +1,38 @@
+@use "sass:color";
+
+$base: #5BB9B8;
+$subtle: #54a1a0;
+$rain: #2C3845;
+$poppy: #BD2A4E;
+
+
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    color: #ffffff;
+
+    thead tr {
+      //background-color: color.scale($rain, $lightness: -45%);
+      background-color:#cc4713;
+      text-align: left;
+    }
+    th, td {
+      padding: 12px 15px;
+    }
+    tbody tr {
+      border-bottom: thin solid #e2520f;
+    }
+    tbody tr:nth-of-type(even) {
+      background-color: $rain;
+    }
+    tbody tr:nth-of-type(odd) {
+      background-color: color.scale($rain, $lightness: -15%);
+    }
+    tbody tr:last-of-type {
+      border-bottom: 2px solid #e2520f;
+  }
+}
