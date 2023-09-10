@@ -1,14 +1,26 @@
 @use "sass:color";
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
-$base: #5BB9B8;
-$subtle: #54a1a0;
-$rain: #2C3845;
-$poppy: #BD2A4E;
+$enable-gradients: true;
+$enable-shadows: true;
 
+$offcanvas-box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
+
+$black: #000000;
+$blue: #14213D;
+$orange: #FCA311;
+$gray: #E5E5E5;
+$white: #FFFFFF;
+
+
+body {
+  background-color: $black;
+  color: $white;
+}
 
 .styled-table {
     border-collapse: collapse;
-    margin: 25px 0;
+    margin: 25px auto;
     font-size: 0.9em;
     font-family: sans-serif;
     min-width: 400px;
@@ -17,22 +29,22 @@ $poppy: #BD2A4E;
 
     thead tr {
       //background-color: color.scale($rain, $lightness: -45%);
-      background-color:#cc4713;
+      background-color: $orange;
       text-align: left;
     }
     th, td {
       padding: 12px 15px;
     }
     tbody tr {
-      border-bottom: thin solid #e2520f;
+      border-bottom: thin solid $orange;
     }
     tbody tr:nth-of-type(even) {
-      background-color: $rain;
+      background-color: $blue;
     }
     tbody tr:nth-of-type(odd) {
-      background-color: color.scale($rain, $lightness: -15%);
+      background-color: color.scale($blue, $lightness: -15%);
     }
     tbody tr:last-of-type {
-      border-bottom: 2px solid #e2520f;
+      border-bottom: 2px solid $orange;
   }
 }

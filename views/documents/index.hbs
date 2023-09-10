@@ -1,24 +1,26 @@
 
-<h1>{{page_title}}</h1>
-<table class="styled-table">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Created At</th>
-      <th>Modified at</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each documents_list}}
-      {{#with this}}
-     <tr>
-      <td>{{title}}</td>
-      <td>{{formatDate created_at}}</td>
-      <td>{{formatDate modified_at}}</td>
-      <td></td>
-    </tr>
-    {{/with}}
-    {{/each}}
-  </tbody>
-</table>
+<div class="text-center">
+  <h1>{{page_title}}</h1>
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Created At</th>
+        <th>Modified at</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each documents_list}}
+        {{#with this}}
+       <tr>
+        <td>{{title}}</td>
+        <td>{{formatDate created_at}}</td>
+        <td>{{formatDate modified_at}}</td>
+        <td><a href="documents/show/id">Show doc</a></td>
+      </tr>
+      {{/with}}
+      {{/each}}
+    </tbody>
+  </table>
+</div>
