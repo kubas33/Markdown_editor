@@ -1,9 +1,8 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const document_controller = require('../controllers/documentController');
+const document_controller = require("../controllers/documentController");
 
-
-router.get('/', document_controller.document_list);
+router.get("/", document_controller.document_list);
 
 // GET request for creating a document. NOTE This must come before routes that display document (uses id).
 router.get("/create", document_controller.document_create_get);
