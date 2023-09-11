@@ -11976,6 +11976,10 @@ body {
   color: #FFFFFF;
 }
 
+.navbar {
+  background-color: #14213D;
+}
+
 .styled-table {
   border-collapse: collapse;
   margin: 25px auto;
