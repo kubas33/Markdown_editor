@@ -2,6 +2,11 @@ const { error, log } = require("console");
 const asyncHandler = require("../node_modules/express-async-handler");
 const fs = require("fs").promises;
 const path = require("path");
+const MarkdownIt = require("markdown-it");
+
+const md = new MarkdownIt({
+  breaks: true
+});
 
 const DATA_FILE_NAME = path.join(process.cwd(), "public", "data", "data.json");
 
@@ -24,7 +29,19 @@ exports.document_list = asyncHandler(async (req, res, next) => {
 
 // Display detail page for a specific document.
 exports.document_detail = asyncHandler(async (req, res, next) => {
-  res.render(`documents/show`, {});
+  const data = await fs.readFile(DATA_FILE_NAME, "utf-8");
+  const documents = JSON.parse(data);
+  console.log(`ID: ${req.params.id}`);
+  const document = documents.find(doc => doc.id == req.params.id);
+  const contentMarkdown = document.content.replace(/\n/g, '<br>');
+
+  const contentHtml = md.render(document.content);
+  console.log(document);
+  res.render(`documents/show`, {
+    document,
+    contentHtml,
+    contentMarkdown,
+  });
   //res.send(`NOT IMPLEMENTED: document detail: ${req.params.id}`);
 });
 
