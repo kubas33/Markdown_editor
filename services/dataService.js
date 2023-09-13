@@ -1,17 +1,14 @@
-const fs = require("fs").promises;
-const path = require("path");
+/* eslint-disable no-useless-catch */
+const fs = require('fs').promises;
+const path = require('path');
+const Document = require('../models/documentModel');
 
-const IDataService = require('../interfaces/IDataService');
-
-const DATA_FILE_NAME = path.join(process.cwd(), "public", "data", "data.json");
-
-class DataService extends IDataService {
+class DataService {
   constructor(dataFilePath) {
-    super();
     this.dataFilePath = dataFilePath;
   }
 
-  async readData() {
+  async readJSONData() {
     try {
       const data = await fs.readFile(this.dataFilePath, 'utf-8');
       return JSON.parse(data);
@@ -20,32 +17,81 @@ class DataService extends IDataService {
     }
   }
 
-  async writeData(data) {
+  async writeJSONData(data) {
     try {
-      await fs.writeFile(this.dataFilePath, JSON.stringify(data, null, 2), 'utf-8');
+      await fs.writeFile(
+        this.dataFilePath,
+        JSON.stringify(data, null, 2),
+        'utf-8'
+      );
     } catch (error) {
       throw error;
     }
   }
 
-}
-/*
-exports.createDataDocument = async (newDocument) => {
-  try {
-    const data = await fs.readFile(DATA_FILE_NAME, "utf-8");
-    const documents = JSON.parse(data);
+  async createDocument(newDocument) {
+    try {
+      const data = await this.readJSONData();
+      data.push(newDocument);
+      await this.writeJSONData(data);
+      return true;
+    } catch (error) {
+      console.error('Błąd podczas zapisu dokumentu: ', error);
+      return false;
+    }
+  }
 
-    // Dodaj nowy obiekt do listy dokumentów
-    documents.push(newDocument);
+  async getDocumentById(id) {
+    try {
+      const data = await this.readJSONData();
+      const document = data.find((doc) => doc.id === id);
+      return !document
+        ? null
+        : new Document(
+            document.id,
+            document.title,
+            document.content,
+            document.user_id,
+            document.created_at,
+            document.modified_at,
+            document.is_deleted
+          );
+    } catch (error) {
+      console.error(
+        'Błąd podczas wczytywania dokumentu o wybranym id: ',
+        error
+      );
+      return null;
+    }
+  }
 
-    // Zapisz zaktualizowane dane do pliku
-    await fs.writeFile(DATA_FILE_NAME, JSON.stringify(documents, null, 2), "utf-8");
-    
-    return true; // Powodzenie
-  } catch (error) {
-    console.error("Błąd podczas zapisu dokumentu: ", error);
-    return false;
+  async updateDocumentById(id, updatedDocument) {
+    try {
+      const data = await this.readJSONData();
+      const documentId = data.findIndex((doc) => doc.id === id);
+      if (documentId === -1) {
+        return {
+          success: false,
+          error: `Dokument o ${id} nie został znaleziony`,
+        };
+      }
+
+      data[documentId] = updatedDocument;
+
+      await this.writeJSONData(data);
+
+      return {
+        success: true,
+        message: `Dokument o id: ${id} został zaktualizowany`,
+      };
+    } catch (error) {
+      console.error('Błąd podczas aktualizacji dokumentu: ', error);
+      return {
+        success: false,
+        error: `Błąd podczas aktualizacji dokumentu o id: ${id}`,
+      };
+    }
   }
 }
-*/
+
 module.exports = DataService;

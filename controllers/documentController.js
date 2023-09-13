@@ -1,27 +1,26 @@
-const { error, log } = require("console");
-const asyncHandler = require("../node_modules/express-async-handler");
-const fs = require("fs").promises;
-const path = require("path");
-const MarkdownIt = require("markdown-it");
-const { createDataDocument } = require('../helpers/dataService');
+const asyncHandler = require('../node_modules/express-async-handler');
+const fs = require('fs').promises;
+const path = require('path');
+const MarkdownIt = require('markdown-it');
+const { createDataDocument } = require('../services/dataService');
 
 const md = new MarkdownIt({
-  breaks: true
+  breaks: true,
 });
 
-const DATA_FILE_NAME = path.join(process.cwd(), "public", "data", "data.json");
+const DATA_FILE_NAME = path.join(process.cwd(), 'public', 'data', 'data.json');
 
 exports.index = asyncHandler(async (req, res, next) => {
-  res.send("NOT IMPLEMENTED: Site Home Page");
+  res.send('NOT IMPLEMENTED: Site Home Page');
 });
 
 // Display list of all Documents.
 exports.document_list = asyncHandler(async (req, res, next) => {
-  const data = await fs.readFile(DATA_FILE_NAME, "utf-8");
+  const data = await fs.readFile(DATA_FILE_NAME, 'utf-8');
   const documents = JSON.parse(data);
-  const page_title = "Documents list";
+  const page_title = 'Documents list';
   //console.log(documents[0]);
-  res.render("documents/index", {
+  res.render('documents/index', {
     page_title,
     documents_list: documents,
   });
@@ -30,10 +29,10 @@ exports.document_list = asyncHandler(async (req, res, next) => {
 
 // Display detail page for a specific document.
 exports.document_detail = asyncHandler(async (req, res, next) => {
-  const data = await fs.readFile(DATA_FILE_NAME, "utf-8");
+  const data = await fs.readFile(DATA_FILE_NAME, 'utf-8');
   const documents = JSON.parse(data);
   console.log(`ID: ${req.params.id}`);
-  const document = documents.find(doc => doc.id == req.params.id);
+  const document = documents.find((doc) => doc.id == req.params.id);
   const contentMarkdown = document.content.replace(/\n/g, '<br>');
 
   const contentHtml = md.render(document.content);
@@ -48,42 +47,39 @@ exports.document_detail = asyncHandler(async (req, res, next) => {
 
 // Display document create form on GET.
 exports.document_create_get = asyncHandler(async (req, res, next) => {
-  res.render(`documents/create`, {
-
-  });
+  res.render(`documents/create`, {});
 });
 
 // Handle document create on POST.
 exports.document_create_post = asyncHandler(async (req, res, next) => {
-  const {title, content} = req.body;
+  const { title, content } = req.body;
   const userId = 1;
 
   const newDocument = {
     title,
     content,
-    user_id:userId,
-  }
+    user_id: userId,
+  };
 
-  
   //res.send("NOT IMPLEMENTED: document create POST");
 });
 
 // Display document delete form on GET.
 exports.document_delete_get = asyncHandler(async (req, res, next) => {
-  res.send("NOT IMPLEMENTED: document delete GET");
+  res.send('NOT IMPLEMENTED: document delete GET');
 });
 
 // Handle document delete on POST.
 exports.document_delete_post = asyncHandler(async (req, res, next) => {
-  res.send("NOT IMPLEMENTED: document delete POST");
+  res.send('NOT IMPLEMENTED: document delete POST');
 });
 
 // Display document update form on GET.
 exports.document_update_get = asyncHandler(async (req, res, next) => {
-  res.send("NOT IMPLEMENTED: document update GET");
+  res.send('NOT IMPLEMENTED: document update GET');
 });
 
 // Handle document update on POST.
 exports.document_update_post = asyncHandler(async (req, res, next) => {
-  res.send("NOT IMPLEMENTED: document update POST");
+  res.send('NOT IMPLEMENTED: document update POST');
 });
