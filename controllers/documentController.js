@@ -3,6 +3,7 @@ const asyncHandler = require("../node_modules/express-async-handler");
 const fs = require("fs").promises;
 const path = require("path");
 const MarkdownIt = require("markdown-it");
+const { createDataDocument } = require('../helpers/dataService');
 
 const md = new MarkdownIt({
   breaks: true
@@ -47,12 +48,24 @@ exports.document_detail = asyncHandler(async (req, res, next) => {
 
 // Display document create form on GET.
 exports.document_create_get = asyncHandler(async (req, res, next) => {
-  res.send("NOT IMPLEMENTED: document create GET");
+  res.render(`documents/create`, {
+
+  });
 });
 
 // Handle document create on POST.
 exports.document_create_post = asyncHandler(async (req, res, next) => {
-  res.send("NOT IMPLEMENTED: document create POST");
+  const {title, content} = req.body;
+  const userId = 1;
+
+  const newDocument = {
+    title,
+    content,
+    user_id:userId,
+  }
+
+  
+  //res.send("NOT IMPLEMENTED: document create POST");
 });
 
 // Display document delete form on GET.
