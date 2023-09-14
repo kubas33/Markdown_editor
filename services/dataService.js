@@ -1,6 +1,5 @@
 /* eslint-disable no-useless-catch */
 const fs = require('fs').promises;
-const path = require('path');
 const Document = require('../models/documentModel');
 
 class DataService {
@@ -91,6 +90,12 @@ class DataService {
         error: `Błąd podczas aktualizacji dokumentu o id: ${id}`,
       };
     }
+  }
+
+  async generateDocumentId() {
+    const data = await this.readJSONData();
+    const lastId = data.length;
+    return lastId + 1;
   }
 }
 
