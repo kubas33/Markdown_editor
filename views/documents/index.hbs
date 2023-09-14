@@ -19,11 +19,15 @@
         <td>{{formatDate modified_at}}</td>
         <td>
           <a href='documents/{{id}}'><i class="p-1 fa-regular fa-eye" style="color: #fca311;" title="Show Document"></i></a>
-          <a class="confirm-del-btn" href='documents/{{id}}/delete' data-document-id = {{id}}><i class="p-1 fa-regular fa-trash-can" style="color: #fca311;" title="Delete document"></i></a>
+          <button class="confirm-del-btn btn btn-link" data-document-id = {{id}} data-bs-toggle="modal" data-bs-target="#confirmDelete" ><i class="p-1 fa-regular fa-trash-can" style="color: #fca311;" title="Delete document"></i></button>
         </td>
       </tr>
       {{/with}}
       {{/each}}
     </tbody>
   </table>
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
+  {{> confirm-delete }}
 </div>
