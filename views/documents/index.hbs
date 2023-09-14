@@ -17,7 +17,10 @@
         <td>{{title}}</td>
         <td>{{formatDate created_at}}</td>
         <td>{{formatDate modified_at}}</td>
-        <td><a href="documents/show/id">Show doc</a></td>
+        <td>
+          <a href='documents/{{id}}'><i class="p-1 fa-regular fa-eye" style="color: #fca311;" title="Show Document"></i></a>
+          <a class="confirm-del-btn" href='documents/{{id}}/delete' data-document-id = {{id}}><i class="p-1 fa-regular fa-trash-can" style="color: #fca311;" title="Delete document"></i></a>
+        </td>
       </tr>
       {{/with}}
       {{/each}}
