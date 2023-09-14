@@ -81,7 +81,9 @@ exports.document_create_post = asyncHandler(async (req, res, next) => {
 
 // Display document delete form on GET.
 exports.document_delete_get = asyncHandler(async (req, res, next) => {
-  res.send('NOT IMPLEMENTED: document delete GET');
+  try {
+  } catch (error) {}
+  //res.send('NOT IMPLEMENTED: document delete GET');
 });
 
 // Handle document delete on POST.
