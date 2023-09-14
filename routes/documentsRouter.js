@@ -13,14 +13,14 @@ router.post('/create', document_controller.document_create_post);
 // GET request to delete document.
 router.get('/:id/delete', document_controller.document_delete_get);
 
-// POST request to delete document.
-router.post('/:id/delete', document_controller.document_delete_post);
+// DELETE request to delete a specific document.
+router.delete('/:id/delete', document_controller.document_delete);
 
 // GET request to update document.
 router.get('/:id/update', document_controller.document_update_get);
 
-// POST request to update document.
-router.post('/:id/update', document_controller.document_update_post);
+// PUT request to update a specific document.
+router.put('/:id/update', document_controller.document_update_put);
 
 // GET request for one document.
 router.get('/:id', document_controller.document_detail);
