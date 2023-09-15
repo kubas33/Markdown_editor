@@ -12066,6 +12066,18 @@ body {
   content: none;
 }
 
+.btn-orange {
+  background-color: #FCA311;
+  color: #FFFFFF;
+}
+.btn-orange:hover {
+  background-color: rgba(252, 163, 17, 0.85);
+  font-weight: 600;
+  scale: 105%;
+  transition: scale 0.25s;
+  color: #FFFFFF;
+}
+
 .styled-table {
   border-collapse: collapse;
   margin: 25px auto;
@@ -12074,13 +12086,17 @@ body {
   min-width: 400px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   color: #ffffff;
+  border: 1px solid #FCA311;
 }
 .styled-table thead tr {
-  background-color: #FCA311;
+  background-color: rgba(252, 163, 17, 0.9);
   text-align: left;
 }
-.styled-table th, .styled-table td {
+.styled-table th {
   padding: 12px 15px;
+}
+.styled-table td {
+  padding: 0.2rem 1rem;
 }
 .styled-table tbody tr {
   border-bottom: thin solid #FCA311;
@@ -12119,4 +12135,22 @@ body {
 }
 .documents-container .content {
   padding: 1rem;
+}
+
+#confirmDelete .modal-content {
+  background-color: #14213D;
+}
+#confirmDelete .modal-header {
+  border-bottom: 1px solid #FCA311;
+}
+#confirmDelete .modal-footer {
+  border-top: 1px solid #FCA311;
+}
+#confirmDelete .btn-close {
+  filter: invert(59%) sepia(100%) saturate(697%) hue-rotate(351deg) brightness(101%) contrast(98%);
+  opacity: 0.5;
+}
+#confirmDelete .btn-close:hover {
+  opacity: 1;
+  filter: invert(59%) sepia(100%) saturate(697%) hue-rotate(351deg) brightness(101%) contrast(98%);
 }/*# sourceMappingURL=style.css.map */

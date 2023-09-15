@@ -1,6 +1,6 @@
 
 <div class="text-center">
-  <h1>{{page_title}}</h1>
+  <h1 class="mt-5">{{page_title}}</h1>
   <table class="styled-table">
     <thead>
       <tr>
@@ -18,16 +18,16 @@
         <td>{{formatDate created_at}}</td>
         <td>{{formatDate modified_at}}</td>
         <td>
-          <a href='documents/{{id}}'><i class="p-1 fa-regular fa-eye" style="color: #fca311;" title="Show Document"></i></a>
-          <button class="confirm-del-btn btn btn-link" data-document-id = {{id}} data-bs-toggle="modal" data-bs-target="#confirmDelete" ><i class="p-1 fa-regular fa-trash-can" style="color: #fca311;" title="Delete document"></i></button>
+          <a href='documents/{{id}}' class="btn btn-link p-1"><i class="p-2 fa-regular fa-eye" style="color: #fca311;" title="Show Document"></i></a>
+          <button class="confirm-del-btn btn btn-lin p-1" data-document-id = {{id}} data-bs-toggle="modal" data-bs-target="#confirmDelete" ><i class="p-1 fa-regular fa-trash-can" style="color: #fca311;" title="Delete document"></i></button>
         </td>
       </tr>
       {{/with}}
       {{/each}}
     </tbody>
   </table>
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button>
+  <a href="/documents/create" class="btn btn-link btn-dark btn-orange text-decoration-none">
+  Add new document
+  </a>
   {{> confirm-delete }}
 </div>

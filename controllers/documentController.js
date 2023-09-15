@@ -81,14 +81,22 @@ exports.document_create_post = asyncHandler(async (req, res, next) => {
 
 // Display document delete form on GET.
 exports.document_delete_get = asyncHandler(async (req, res, next) => {
-  try {
-  } catch (error) {}
-  //res.send('NOT IMPLEMENTED: document delete GET');
+  // try {
+  // } catch (error) {}
+  res.send('NOT IMPLEMENTED: document delete GET');
 });
 
-// Handle document delete on POST.
-exports.document_delete_post = asyncHandler(async (req, res, next) => {
-  res.send('NOT IMPLEMENTED: document delete POST');
+// Handle document delete on DELETE.
+exports.document_delete = asyncHandler(async (req, res, next) => {
+  const { id } = req.params;
+
+  try {
+    await dataService.deleteDocumentById(id);
+    res.status(204);
+  } catch (e) {
+    console.error('Błąd podczas usuwanie dokumentu: ', e);
+    res.status(500).json({ success: false, error: 'Wystąpił błąd serwera' });
+  }
 });
 
 // Display document update form on GET.
@@ -96,7 +104,7 @@ exports.document_update_get = asyncHandler(async (req, res, next) => {
   res.send('NOT IMPLEMENTED: document update GET');
 });
 
-// Handle document update on POST.
-exports.document_update_post = asyncHandler(async (req, res, next) => {
+// Handle document update on PUT.
+exports.document_update_put = asyncHandler(async (req, res, next) => {
   res.send('NOT IMPLEMENTED: document update POST');
 });

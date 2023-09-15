@@ -112,6 +112,19 @@ body {
   content: none;
 }
 
+.btn-orange {
+  background-color: $orange;
+  color: $white;
+  &:hover {
+    background-color: color.scale($orange, $alpha: -15%);
+    //color: $blue;
+    font-weight: 600;
+    scale: 105%;
+    transition: scale .25s;
+    color: $white;
+  }
+}
+
 .styled-table {
     border-collapse: collapse;
     margin: 25px auto;
@@ -120,14 +133,19 @@ body {
     min-width: 400px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     color: #ffffff;
+    border: 1px solid $orange;
 
     thead tr {
       //background-color: color.scale($rain, $lightness: -45%);
-      background-color: $orange;
+      background-color: color.scale($orange, $alpha: -10%);
       text-align: left;
     }
-    th, td {
+    th {
       padding: 12px 15px;
+    }
+
+    td {
+      padding: 0.2rem 1rem;
     }
     tbody tr {
       border-bottom: thin solid $orange;
@@ -171,5 +189,27 @@ body {
 
   .content {
     padding: 1rem;
+  }
+}
+
+#confirmDelete {
+  .modal-content {
+    background-color: $blue;
+  }
+
+  .modal-header {
+    border-bottom: 1px solid $orange;
+  }
+  .modal-footer {
+    border-top: 1px solid $orange;
+  }
+  .btn-close {
+   filter: invert(59%) sepia(100%) saturate(697%) hue-rotate(351deg) brightness(101%) contrast(98%);
+   opacity: .5;
+
+   &:hover {
+    opacity: 1;
+    filter: invert(59%) sepia(100%) saturate(697%) hue-rotate(351deg) brightness(101%) contrast(98%);
+   }
   }
 }

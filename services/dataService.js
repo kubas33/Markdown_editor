@@ -67,15 +67,7 @@ class DataService {
   async updateDocumentById(id, updatedDocument) {
     try {
       const data = await this.readJSONData();
-      const documentId = data.findIndex((doc) => doc.id === id);
-      if (documentId === -1) {
-        return {
-          success: false,
-          error: `Dokument o ${id} nie został znaleziony`,
-        };
-      }
-
-      data[documentId] = updatedDocument;
+      data[this.getIndexOfDocument(id)] = updatedDocument;
 
       await this.writeJSONData(data);
 
@@ -89,6 +81,47 @@ class DataService {
         success: false,
         error: `Błąd podczas aktualizacji dokumentu o id: ${id}`,
       };
+    }
+  }
+
+  async deleteDocumentById(id) {
+    try {
+      const data = await this.readJSONData();
+      const newData = data.filter((doc) => doc.id !== Number(id));
+      if (newData.length != data.length) {
+        await this.writeJSONData(newData);
+
+        return {
+          success: true,
+          message: `Dokument o id: ${id} został usunięty`,
+        };
+      } else {
+        return {
+          success: false,
+          error: `Dokument o id: ${id} nie został znaleziony`,
+        };
+      }
+    } catch (e) {
+      console.error('Błąd podczas usuwanie dokumentu: ', e);
+      return {
+        success: false,
+        error: `Błąd podczas usuwania dokumentu o id: ${id}`,
+      };
+    }
+  }
+
+  async getIndexOfDocument(id) {
+    try {
+      const data = await this.readJSONData();
+      const documentIndex = data.findIndex((doc) => doc.id === id);
+      if (documentIndex === -1) {
+        return {
+          success: false,
+          error: `Dokument o ${id} nie został znaleziony`,
+        };
+      } else return documentIndex;
+    } catch (error) {
+      console.error('Błąd podczas wyszukiwania indeksu dokumentu: ', error);
     }
   }
 
