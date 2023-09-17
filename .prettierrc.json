@@ -23,5 +23,6 @@
   "useTabs": false,
   "vueIndentScriptAndStyle": false,
   "filepath": "c:\\Users\\work\\Desktop\\JS-vademecum\\projekt\\index.js",
-  "parser": "babel"
+  "parser": "babel",
+  "plugins": ["@prettier/plugin-php"]
 }

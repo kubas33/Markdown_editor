@@ -35,7 +35,8 @@ exports.document_detail = asyncHandler(async (req, res, next) => {
   const documents = JSON.parse(data);
   console.log(`ID: ${req.params.id}`);
   const document = documents.find((doc) => doc.id == req.params.id);
-  const contentMarkdown = document.content.replace(/\n/g, '<br>');
+  //const contentMarkdown = document.content.replace(/\n/g, '<br>');
+  const contentMarkdown = document.content;
 
   const contentHtml = md.render(document.content);
   console.log(document);
@@ -106,5 +107,7 @@ exports.document_update_get = asyncHandler(async (req, res, next) => {
 
 // Handle document update on PUT.
 exports.document_update_put = asyncHandler(async (req, res, next) => {
+
+  
   res.send('NOT IMPLEMENTED: document update POST');
 });

@@ -5,8 +5,7 @@
     "content": "# Witaj w moim pierwszym dokumencie Markdown!\nTo jest **przykład** treści w formacie Markdown.\n\nMożesz zacząć edytować i eksperymentować!\n > A to przykład blockqoute.",
     "user_id": 1,
     "created_at": "2023-09-01T08:00:00Z",
-    "modified_at": "2023-09-01T08:15:00Z",
-    "is_deleted": false
+    "modified_at": "2023-09-01T08:15:00Z"
   },
   {
     "id": 2,
@@ -14,8 +13,7 @@
     "content": "# Wprowadzenie do Markdown\nMarkdown to prosty język znaczników, który pozwala na formatowanie tekstu w sposób uproszczony. Oto kilka przykładów:\n\n- **Pogrubienie** tekstu\n- *Kursywa* tekstu\n- [Link](https://www.example.com)\n\nSpróbuj samemu!",
     "user_id": 1,
     "created_at": "2023-09-02T10:30:00Z",
-    "modified_at": "2023-09-02T10:45:00Z",
-    "is_deleted": false
+    "modified_at": "2023-09-02T10:45:00Z"
   },
   {
     "id": 3,
@@ -23,8 +21,7 @@
     "content": "# Lista Zakupów\n\nOto moja lista zakupów:\n\n- Mleko\n- Jajka\n- Chleb\n- Warzywa\n\nNie zapomnij kupić!",
     "user_id": 1,
     "created_at": "2023-09-03T14:20:00Z",
-    "modified_at": "2023-09-03T14:30:00Z",
-    "is_deleted": false
+    "modified_at": "2023-09-03T14:30:00Z"
   },
   {
     "id": 4,
@@ -32,7 +29,6 @@
     "content": "# Wspaniałe Podróże\r\n\r\n## Sekcja 1: Europa\r\n\r\nEuropa jest kontynentem bogatym w kulturę, historię i różnorodność krajobrazów. Oto kilka fascynujących miejsc do odwiedzenia:\r\n\r\n### Paryż, Francja\r\n\r\nParyż, stolica Francji, jest znanym na całym świecie ośrodkiem mody, kultury i sztuki. Nie możesz przegapić wieży Eiffla, Luwru i pysznych francuskich bagietek.\r\n\r\n### Santorini, Grecja\r\n\r\nSantorini to malownicza wyspa grecka z białymi domami i niebieskimi dachami, otoczona krystalicznie czystym Morzem Egejskim. To raj dla miłośników słońca i morza.\r\n\r\n## Sekcja 2: Azja\r\n\r\nAzja to ogromny kontynent pełen kontrastów i fascynujących miejsc. Oto kilka z nich:\r\n\r\n### Kioto, Japonia\r\n\r\nKioto to miasto tradycji, z tysiącami świątyń, ogrodów i zabytków. Spacer po kimonach wśród kwitnących wiśni jest niezapomnianym doświadczeniem.\r\n\r\n### Goa, Indie\r\n\r\nGoa to miejsce, gdzie spotykają się plaże o białym piasku, kolorowe festiwale i pyszna kuchnia. To idealne miejsce na wakacyjny relaks.\r\n\r\n## Sekcja 3: Ameryka Południowa\r\n\r\nAmeryka Południowa oferuje niesamowitą przyrodę i kulturę. Oto kilka miejsc w tej części świata:\r\n\r\n### Machu Picchu, Peru\r\n\r\nMachu Picchu to starożytne miasto Inków ukryte w peruwiańskich Andach. To magiczne miejsce otoczone tajemnicą i majestatycznymi widokami.\r\n\r\n### Rio de Janeiro, Brazylia\r\n\r\nRio de Janeiro słynie z plaż, karnawałów i pięknych wzgórz. Widok z Cristo Redentor jest jednym z symboli tego miasta.\r\n\r\nTo tylko kilka przykładów wspaniałych miejsc na świecie, które warto odwiedzić. Niezależnie od tego, czy jesteś miłośnikiem podróży, czy szukasz inspiracji, świat ma wiele do zaoferowania.\r\n",
     "user_id": 1,
     "created_at": "2023-09-14T06:43:36.634Z",
-    "modified_at": "2023-09-14T06:43:36.634Z",
-    "is_deleted": false
+    "modified_at": "2023-09-14T06:43:36.634Z"
   }
 ]

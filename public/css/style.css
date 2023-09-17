@@ -12077,6 +12077,10 @@ body {
   transition: scale 0.25s;
   color: #FFFFFF;
 }
+.btn-orange:focus {
+  background-color: #FCA311;
+  border: 3px solid #FFFFFF;
+}
 
 .styled-table {
   border-collapse: collapse;
@@ -12153,4 +12157,29 @@ body {
 #confirmDelete .btn-close:hover {
   opacity: 1;
   filter: invert(59%) sepia(100%) saturate(697%) hue-rotate(351deg) brightness(101%) contrast(98%);
+}
+
+.create-container {
+  max-width: 32rem;
+}
+.create-container #titleInput {
+  display: inline-block;
+}
+
+.documents-container .cont-item {
+  flex-grow: 0.5;
+  width: 100%;
+}
+.documents-container textarea {
+  background: transparent;
+  color: #FFFFFF;
+  overflow: auto;
+  height: 100%;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .documents-container .grid-border {
+    display: none;
+  }
 }/*# sourceMappingURL=style.css.map */

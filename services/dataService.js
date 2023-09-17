@@ -1,37 +1,47 @@
-/* eslint-disable no-useless-catch */
-const fs = require('fs').promises;
-const Document = require('../models/documentModel');
+// Importujemy moduł fs.promises, który umożliwia korzystanie z asynchronicznych operacji na plikach
+const { readFile, writeFile } = require('fs').promises;
 
+// Klasa DataService
 class DataService {
+  // Konstruktor przyjmuje ścieżkę do pliku z danymi
   constructor(dataFilePath) {
     this.dataFilePath = dataFilePath;
+    this.cachedData = null;
   }
 
+  // Metoda asynchroniczna readJSONData wczytuje dane z pliku JSON
   async readJSONData() {
-    try {
-      const data = await fs.readFile(this.dataFilePath, 'utf-8');
-      return JSON.parse(data);
-    } catch (error) {
-      throw error;
+    // Jeśli dane zostały już wczytane, zwracamy je z pamięci podręcznej
+    if (this.cachedData) {
+      return this.cachedData;
+    } else {
+      // Wczytujemy dane z pliku i parsujemy je do postaci obiektu JavaScript
+      const data = await readFile(this.dataFilePath, 'utf-8');
+      this.cachedData = JSON.parse(data);
+      return this.cachedData;
     }
   }
 
+  // Metoda asynchroniczna writeJSONData zapisuje dane do pliku JSON
   async writeJSONData(data) {
-    try {
-      await fs.writeFile(
+    if (this.cachedData !== data) {
+      this.cachedData = data;
+      await writeFile(
         this.dataFilePath,
         JSON.stringify(data, null, 2),
         'utf-8'
       );
-    } catch (error) {
-      throw error;
     }
   }
 
+  // Metoda asynchroniczna createDocument dodaje nowy dokument do bazy danych
   async createDocument(newDocument) {
     try {
+      // Wczytujemy dane z pliku JSON
       const data = await this.readJSONData();
+      // Dodajemy nowy dokument do tablicy z danymi
       data.push(newDocument);
+      // Zapisujemy zmodyfikowane dane do pliku JSON
       await this.writeJSONData(data);
       return true;
     } catch (error) {
@@ -40,10 +50,14 @@ class DataService {
     }
   }
 
+  // Metoda asynchroniczna getDocumentById zwraca dokument o wybranym id
   async getDocumentById(id) {
     try {
+      // Wczytujemy dane z pliku JSON
       const data = await this.readJSONData();
+      // Wyszukujemy dokument o wybranym id
       const document = data.find((doc) => doc.id === id);
+      // Jeśli dokument nie został znaleziony, zwracamy null
       return !document
         ? null
         : new Document(
@@ -64,13 +78,15 @@ class DataService {
     }
   }
 
+  // Metoda asynchroniczna updateDocumentById aktualizuje dokument o wybranym id
   async updateDocumentById(id, updatedDocument) {
     try {
+      // Wczytujemy dane z pliku JSON
       const data = await this.readJSONData();
+      // Znajdujemy indeks dokumentu o wybranym id
       data[this.getIndexOfDocument(id)] = updatedDocument;
-
+      // Zapisujemy zmodyfikowane dane do pliku JSON
       await this.writeJSONData(data);
-
       return {
         success: true,
         message: `Dokument o id: ${id} został zaktualizowany`,
@@ -84,13 +100,14 @@ class DataService {
     }
   }
 
+  // Metoda asynchroniczna deleteDocumentById usuwa dokument o wybranym id
   async deleteDocumentById(id) {
     try {
       const data = await this.readJSONData();
-      const newData = data.filter((doc) => doc.id !== Number(id));
-      if (newData.length != data.length) {
-        await this.writeJSONData(newData);
-
+      const documentIndex = await this.getIndexOfDocument(id);
+      if (documentIndex !== -1) {
+        data.splice(documentIndex, 1);
+        await this.writeJSONData(data);
         return {
           success: true,
           message: `Dokument o id: ${id} został usunięty`,
@@ -101,8 +118,8 @@ class DataService {
           error: `Dokument o id: ${id} nie został znaleziony`,
         };
       }
-    } catch (e) {
-      console.error('Błąd podczas usuwanie dokumentu: ', e);
+    } catch (error) {
+      console.error('Błąd podczas usuwania dokumentu: ', error);
       return {
         success: false,
         error: `Błąd podczas usuwania dokumentu o id: ${id}`,
@@ -110,26 +127,37 @@ class DataService {
     }
   }
 
+  // Metoda asynchroniczna getIndexOfDocument zwraca indeks dokumentu o wybranym id
   async getIndexOfDocument(id) {
     try {
+      // Wczytujemy dane z pliku JSON
       const data = await this.readJSONData();
+      // Wyszukujemy indeks dokumentu o wybranym id
       const documentIndex = data.findIndex((doc) => doc.id === id);
+      // Jeśli dokument nie został znaleziony, zwracamy -1
       if (documentIndex === -1) {
-        return {
-          success: false,
-          error: `Dokument o ${id} nie został znaleziony`,
-        };
+        return -1;
       } else return documentIndex;
     } catch (error) {
       console.error('Błąd podczas wyszukiwania indeksu dokumentu: ', error);
+      return -1;
     }
   }
 
+  // Metoda asynchroniczna generateDocumentId generuje nowe id dla dokumentu
   async generateDocumentId() {
-    const data = await this.readJSONData();
-    const lastId = data.length;
-    return lastId + 1;
+    try {
+      // Wczytujemy dane z pliku JSON
+      const data = await this.readJSONData();
+      // Zwracamy ostatnie id z tablicy z danymi zwiększone o 1
+      const lastId = data.length;
+      return lastId + 1;
+    } catch (error) {
+      console.error('Błąd podczas generowania ID dokumentu: ', error);
+      return -1;
+    }
   }
 }
 
+// Eksportujemy klasę DataService
 module.exports = DataService;

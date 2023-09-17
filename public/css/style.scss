@@ -100,13 +100,6 @@ body {
   background-color: scale-color($color: $black, $lightness: 30%,);
 }
 
-.show-dropdown {
-  //min-width: min-content;
-  //aspect-ratio: 1 / 1;
-  button {
-    //aspect-ratio: 1 / 1;
-  }
-}
 
 .show-dropdown button::after{
   content: none;
@@ -122,6 +115,10 @@ body {
     scale: 105%;
     transition: scale .25s;
     color: $white;
+  }
+  &:focus {
+    background-color: $orange;
+    border: 3px solid $white;
   }
 }
 
@@ -211,5 +208,36 @@ body {
     opacity: 1;
     filter: invert(59%) sepia(100%) saturate(697%) hue-rotate(351deg) brightness(101%) contrast(98%);
    }
+  }
+}
+
+.create-container {
+  max-width: 32rem;
+
+  #titleInput {
+    display: inline-block;
+  }
+}
+
+.documents-container {
+  .cont-item {
+    flex-grow: 0.5;
+    width: 100%;
+  }
+  textarea {
+    background: transparent;
+    color: $white;
+    overflow: auto;
+    height: 100%;
+    border: none;
+
+  }
+}
+
+@media (max-width: 768px) {
+  .documents-container {
+    .grid-border {
+      display: none;
+    }
   }
 }

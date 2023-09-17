@@ -13,6 +13,8 @@ app.set('view engine', '.hbs');
 app.set('views', './views');
 
 app.use(express.static('public'));
+
+
 app.use(express.urlencoded({ extended: false }));
 
 app.use('/', mainRouter);
@@ -22,4 +24,5 @@ const publicPath = path.join(__dirname, 'public');
 
 app.listen(port, () => {
   console.log(`Serwer Express nasłuchuje na porcie ${port}`);
+  console.log(`Wejdź na stronę pod adresem http://localhost:${port}`);
 });

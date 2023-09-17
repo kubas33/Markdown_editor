@@ -1,4 +1,4 @@
-<div class"container-fluid ">
+<div class="container-fluid mt-1 mt-md-4">
     <div class="container-md my-2">
         <div class="container-fluid d-flex align-items-center p-0">
             <div class="dropdown align-self-stretch show-dropdown " data-bs-theme="dark">
@@ -27,16 +27,14 @@
             </div>
         </div>
         <div class="containter-fluid">
-            <div class="documents-container">
-                <div class="grid-item vstack">
+            <div class="documents-container d-flex flex-column flex-md-row">
+                <div class="cont-item vstack">
                     <span class="title">Markdown</span>
-                    <div class="content" id="markdown">
-                        {{{contentMarkdown}}}
-                    </div>
+                    <textarea class="content p-4" id="markdown">{{{contentMarkdown}}}</textarea>
                 </div>
-                <div class="grid-item vstack">
+                <div class="cont-item vstack" id="preview">
                     <span class="title">Preview</span>
-                    <div class="content" id="preview">
+                    <div class="content p-4" id="preview">
                         {{{contentHtml}}}
                     </div>
                 </div>
@@ -44,4 +42,4 @@
             </div>
         </div>
     </div>
-</div class"container-fluid">
+</div>

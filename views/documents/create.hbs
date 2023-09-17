@@ -1,12 +1,16 @@
-<form action="/documents/create" method="post">
-  <div class="col-12">
-    <label for="titleInput" class="visually-hidden">Title</label>
-    <input type="text" class="form-control" id="titleInput" placeholder="Title..." name="title">
-    <label for="contentInput" class="visually-hidden">Title</label>
-    <textarea class="form-control" id="contentInput" placeholder="Document content..." rows="10" name="content"></textarea>
-  </div>
-  <div class="row row-cols-2">
-    <button type="submit" class="btn btn-submit">Add document</button>
-    <a href="" class="btn btn-danger">Cancel</a>
-  </div>
-</form>
+<div class="container-md create-container">
+  <form action="/documents/create" method="post">
+    <div class="col-12">
+      <div class="d-flex p-4 flex-sm-row flex-column">
+        <label for="titleInput" class="col-sm-2 col-form-label ">Title:</label>
+        <input type="text" class="form-control flex-grow-1" id="titleInput" name="title">
+      </div>
+      <label for="contentInput" class="visually-hidden">Title</label>
+      <textarea class="form-control" id="contentInput" placeholder="Document content..." rows="10" name="content"></textarea>
+    </div>
+    <div class="d-flex justify-content-between p-4 flex-column flex-sm-row">
+      <button type="submit" class="btn btn-orange mx-3 my-3 my-sm-0">Add document</button>
+      <a href="/documents" class="btn btn-danger">Cancel</a>
+    </div>
+  </form>
+</div>
