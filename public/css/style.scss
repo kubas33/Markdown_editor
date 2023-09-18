@@ -94,10 +94,12 @@ body {
 
 .navbar {
   background-color: $blue;
+  
 }
 
 .show-header{
   background-color: scale-color($color: $black, $lightness: 30%,);
+  
 }
 
 
@@ -164,6 +166,7 @@ body {
   //grid-gap: 16px;
   position: relative;
   border: 1px solid color.scale($blue, $lightness: -15%);
+  border-top: 2px solid $orange;
   
   .title {
     background-color: color.scale($blue, $lightness: -15%);
@@ -232,6 +235,15 @@ body {
     border: none;
 
   }
+}
+
+#title-input {
+  //background-color: scale-color($color: $black, $lightness: 25%,);
+  background-color: transparent;
+  border: 1px solid scale-color($color: $black, $lightness: 25%,);
+  border-radius: 5px;
+  text-align: center;
+  color: $white;
 }
 
 @media (max-width: 768px) {

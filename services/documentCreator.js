@@ -1,4 +1,3 @@
-const DATA_FILE_NAME = path.join(process.cwd(), 'public', 'data', 'data.json');
 
 class DocumentCreator {
   createDocument(title, content, userId) {

@@ -12120,6 +12120,7 @@ body {
   grid-template-columns: 1fr 1fr;
   position: relative;
   border: 1px solid #111c34;
+  border-top: 2px solid #FCA311;
 }
 .documents-container .title {
   background-color: #111c34;
@@ -12176,6 +12177,14 @@ body {
   overflow: auto;
   height: 100%;
   border: none;
+}
+
+#title-input {
+  background-color: transparent;
+  border: 1px solid #404040;
+  border-radius: 5px;
+  text-align: center;
+  color: #FFFFFF;
 }
 
 @media (max-width: 768px) {

@@ -1,36 +1,32 @@
 // Importujemy moduł fs.promises, który umożliwia korzystanie z asynchronicznych operacji na plikach
 const { readFile, writeFile } = require('fs').promises;
+const Document = require('../models/documentModel');
 
 // Klasa DataService
 class DataService {
   // Konstruktor przyjmuje ścieżkę do pliku z danymi
   constructor(dataFilePath) {
     this.dataFilePath = dataFilePath;
-    this.cachedData = null;
   }
 
   // Metoda asynchroniczna readJSONData wczytuje dane z pliku JSON
   async readJSONData() {
-    // Jeśli dane zostały już wczytane, zwracamy je z pamięci podręcznej
-    if (this.cachedData) {
-      return this.cachedData;
-    } else {
-      // Wczytujemy dane z pliku i parsujemy je do postaci obiektu JavaScript
+    try {
       const data = await readFile(this.dataFilePath, 'utf-8');
-      this.cachedData = JSON.parse(data);
-      return this.cachedData;
+      return JSON.parse(data);
+    } catch (error) {
+      console.error('Błąd podczas wczytywania danych JSON: ', error);
+      throw error; // Rzuć wyjątek, aby obsłużyć go na wyższym poziomie
     }
   }
 
   // Metoda asynchroniczna writeJSONData zapisuje dane do pliku JSON
   async writeJSONData(data) {
-    if (this.cachedData !== data) {
-      this.cachedData = data;
-      await writeFile(
-        this.dataFilePath,
-        JSON.stringify(data, null, 2),
-        'utf-8'
-      );
+    try {
+      await writeFile(this.dataFilePath, JSON.stringify(data, null, 2), 'utf-8');
+    } catch (error) {
+      console.error('Błąd podczas zapisywania danych JSON: ', error);
+      throw error; // Rzuć wyjątek, aby obsłużyć go na wyższym poziomie
     }
   }
 
@@ -53,10 +49,13 @@ class DataService {
   // Metoda asynchroniczna getDocumentById zwraca dokument o wybranym id
   async getDocumentById(id) {
     try {
+      // Konwertuj id na liczbę wewnątrz funkcji
+      const documentId = Number(id);
       // Wczytujemy dane z pliku JSON
       const data = await this.readJSONData();
+      console.log(documentId);
       // Wyszukujemy dokument o wybranym id
-      const document = data.find((doc) => doc.id === id);
+      const document = data.find((doc) => doc.id === documentId);
       // Jeśli dokument nie został znaleziony, zwracamy null
       return !document
         ? null
@@ -83,14 +82,25 @@ class DataService {
     try {
       // Wczytujemy dane z pliku JSON
       const data = await this.readJSONData();
-      // Znajdujemy indeks dokumentu o wybranym id
-      data[this.getIndexOfDocument(id)] = updatedDocument;
-      // Zapisujemy zmodyfikowane dane do pliku JSON
-      await this.writeJSONData(data);
-      return {
-        success: true,
-        message: `Dokument o id: ${id} został zaktualizowany`,
-      };
+      const documentIndex = await this.getIndexOfDocument(Number(id));
+      console.log(documentIndex);
+      if (documentIndex !== -1) {
+        // Znajdujemy indeks dokumentu o wybranym id
+        data[documentIndex] = updatedDocument;
+        console.log(data);
+        // Zapisujemy zmodyfikowane dane do pliku JSON
+        await this.writeJSONData(data);
+        //console.log('cache:', this.cachedData);
+        return {
+          success: true,
+          message: `Dokument o id: ${id} został zaktualizowany`,
+        };
+      } else {
+        return {
+          success: false,
+          error: `Dokument o id: ${id} nie został znaleziony`,
+        };
+      }
     } catch (error) {
       console.error('Błąd podczas aktualizacji dokumentu: ', error);
       return {
@@ -130,10 +140,11 @@ class DataService {
   // Metoda asynchroniczna getIndexOfDocument zwraca indeks dokumentu o wybranym id
   async getIndexOfDocument(id) {
     try {
+      const documentId = Number(id);
       // Wczytujemy dane z pliku JSON
       const data = await this.readJSONData();
       // Wyszukujemy indeks dokumentu o wybranym id
-      const documentIndex = data.findIndex((doc) => doc.id === id);
+      const documentIndex = data.findIndex((doc) => doc.id === documentId);
       // Jeśli dokument nie został znaleziony, zwracamy -1
       if (documentIndex === -1) {
         return -1;

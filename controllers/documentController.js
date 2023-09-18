@@ -33,13 +33,11 @@ exports.document_list = asyncHandler(async (req, res, next) => {
 exports.document_detail = asyncHandler(async (req, res, next) => {
   const data = await fs.readFile(DATA_FILE_NAME, 'utf-8');
   const documents = JSON.parse(data);
-  console.log(`ID: ${req.params.id}`);
   const document = documents.find((doc) => doc.id == req.params.id);
   //const contentMarkdown = document.content.replace(/\n/g, '<br>');
   const contentMarkdown = document.content;
 
   const contentHtml = md.render(document.content);
-  console.log(document);
   res.render(`documents/show`, {
     document,
     contentHtml,
@@ -107,7 +105,22 @@ exports.document_update_get = asyncHandler(async (req, res, next) => {
 
 // Handle document update on PUT.
 exports.document_update_put = asyncHandler(async (req, res, next) => {
+const { id } = req.params;
+const {title, content} = req.body;
+const currentDoc = await dataService.getDocumentById(id);
 
-  
-  res.send('NOT IMPLEMENTED: document update POST');
+  try {
+    if (currentDoc.title !== title || currentDoc.content !== content) {
+      const userId = 1;
+      const now = new Date().toISOString();
+      const updatedDoc = new Document(id, title, content, userId, currentDoc.created_at, now, false);
+      await dataService.updateDocumentById(id, updatedDoc);
+      res.status(200).json({ success: true, message: 'Dokument zaktualizowano pomyślnie' });
+    } else {
+      res.status(200).json({ success: true, message: 'Dokument nie wymagał aktualizacji' });
+    }
+  } catch (e) {
+    console.error('Błąd podczas aktualizowania dokumentu: ', e);
+    res.status(500).json({ success: false, error: 'Wystąpił błąd serwera' });
+  }
 });

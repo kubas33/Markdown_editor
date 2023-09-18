@@ -2,18 +2,20 @@
   {
     "id": 1,
     "title": "Pierwszy Dokument",
-    "content": "# Witaj w moim pierwszym dokumencie Markdown!\nTo jest **przykład** treści w formacie Markdown.\n\nMożesz zacząć edytować i eksperymentować!\n > A to przykład blockqoute.",
+    "content": "# Witaj w moim pierwszym dokumencie Markdown!\nTo jest **przykład** treści w formacie Markdown.\n\nMożesz zacząć edytować i eksperymentować!\n > A to przykład blockqoute.\n### Nowy akapit",
     "user_id": 1,
     "created_at": "2023-09-01T08:00:00Z",
-    "modified_at": "2023-09-01T08:15:00Z"
+    "modified_at": "2023-09-18T10:30:05.578Z",
+    "is_deleted": false
   },
   {
     "id": 2,
-    "title": "Nauka Markdown",
+    "title": "Nauka Markdownn",
     "content": "# Wprowadzenie do Markdown\nMarkdown to prosty język znaczników, który pozwala na formatowanie tekstu w sposób uproszczony. Oto kilka przykładów:\n\n- **Pogrubienie** tekstu\n- *Kursywa* tekstu\n- [Link](https://www.example.com)\n\nSpróbuj samemu!",
     "user_id": 1,
     "created_at": "2023-09-02T10:30:00Z",
-    "modified_at": "2023-09-02T10:45:00Z"
+    "modified_at": "2023-09-18T10:27:32.147Z",
+    "is_deleted": false
   },
   {
     "id": 3,
@@ -21,7 +23,8 @@
     "content": "# Lista Zakupów\n\nOto moja lista zakupów:\n\n- Mleko\n- Jajka\n- Chleb\n- Warzywa\n\nNie zapomnij kupić!",
     "user_id": 1,
     "created_at": "2023-09-03T14:20:00Z",
-    "modified_at": "2023-09-03T14:30:00Z"
+    "modified_at": "2023-09-03T14:30:00Z",
+    "is_deleted": false
   },
   {
     "id": 4,
