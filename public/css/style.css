@@ -12142,6 +12142,158 @@ body {
 .documents-container .content {
   padding: 1rem;
 }
+.documents-container .content#preview {
+  /* Listy (ul, ol) */
+  /* Elementy listy (li) */
+  /* Kierunki tekstu (dir) */
+  /* Cytaty (blockquote) */
+  /* Nowa linia (hr) */
+  /* Pola formularza (input, textarea, select) */
+}
+.documents-container .content#preview ul, .documents-container .content#preview ol {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+.documents-container .content#preview li {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.documents-container .content#preview dir {
+  margin: 1em 0;
+}
+.documents-container .content#preview blockquote {
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+.documents-container .content#preview dd {
+  display: block;
+  margin-left: 40px;
+}
+.documents-container .content#preview dl {
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+}
+.documents-container .content#preview fieldset {
+  display: block;
+  margin-left: 2px;
+  margin-right: 2px;
+  padding-top: 0.35em;
+  padding-bottom: 0.625em;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  border: 2px groove black;
+}
+.documents-container .content#preview figure {
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+.documents-container .content#preview h1, .documents-container .content#preview .h1 {
+  display: block;
+  font-size: 2em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+.documents-container .content#preview h2, .documents-container .content#preview .h2 {
+  display: block;
+  font-size: 2em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+.documents-container .content#preview h3, .documents-container .content#preview .h3 {
+  display: block;
+  font-size: 1.17em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+.documents-container .content#preview h4, .documents-container .content#preview .h4 {
+  display: block;
+  margin-top: 1.33em;
+  margin-bottom: 1.33em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+.documents-container .content#preview h5, .documents-container .content#preview .h5 {
+  display: block;
+  font-size: 0.83em;
+  margin-top: 1.67em;
+  margin-bottom: 1.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+.documents-container .content#preview h6, .documents-container .content#preview .h6 {
+  display: block;
+  font-size: 0.83em;
+  margin-top: 1.67em;
+  margin-bottom: 1.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+.documents-container .content#preview hr {
+  margin: 0.5em auto;
+  border-top: 1px solid #ccc;
+}
+.documents-container .content#preview menu {
+  display: block;
+  list-style-type: disc;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 40px;
+}
+.documents-container .content#preview input, .documents-container .content#preview textarea, .documents-container .content#preview select {
+  margin: 0.5em 0;
+  padding: 1px;
+}
+.documents-container .content#preview ol {
+  display: block;
+  list-style-type: decimal;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 40px;
+}
+.documents-container .content#preview p {
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+}
+.documents-container .content#preview ul {
+  display: block;
+  list-style-type: disc;
+  margin-top: 1em;
+  margin-bottom: 1 em;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 40px;
+}
+.documents-container .content#preview table, .documents-container .content#preview th, .documents-container .content#preview td, .documents-container .content#preview tr {
+  border: 1px solid #FCA311;
+}
 
 #confirmDelete .modal-content {
   background-color: #14213D;

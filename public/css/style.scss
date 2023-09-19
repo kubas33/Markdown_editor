@@ -191,6 +191,178 @@ body {
   .content {
     padding: 1rem;
   }
+
+  .content#preview {
+    /* Listy (ul, ol) */
+    ul, ol {
+      margin-top: 1em;
+      margin-bottom: 1em;
+    }
+
+    /* Elementy listy (li) */
+    li {
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+    }
+
+    /* Kierunki tekstu (dir) */
+    dir {
+      margin: 1em 0;
+    }
+
+    /* Cytaty (blockquote) */
+    blockquote {
+      display: block;
+      margin-top: 1em;
+      margin-bottom: 1em;
+      margin-left: 40px;
+      margin-right: 40px;
+    }
+
+    dd {
+      display: block;
+      margin-left: 40px;
+    }
+
+    dl {
+      display: block;
+      margin-top: 1em;
+      margin-bottom: 1em;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    fieldset {
+      display: block;
+      margin-left: 2px;
+      margin-right: 2px;
+      padding-top: 0.35em;
+      padding-bottom: 0.625em;
+      padding-left: 0.75em;
+      padding-right: 0.75em;
+      border: 2px groove black;
+    }
+
+    figure {
+      display: block;
+      margin-top: 1em;
+      margin-bottom: 1em;
+      margin-left: 40px;
+      margin-right: 40px;
+    }
+
+    h1 {
+      display: block;
+      font-size: 2em;
+      margin-top: 0.67em;
+      margin-bottom: 0.67em;
+      margin-left: 0;
+      margin-right: 0;
+      font-weight: bold;
+    }
+
+    h2 {
+      display: block;
+      font-size: 2em;
+      margin-top: 0.67em;
+      margin-bottom: 0.67em;
+      margin-left: 0;
+      margin-right: 0;
+      font-weight: bold;
+    }
+    
+    h3 {
+      display: block;
+      font-size: 1.17em;
+      margin-top: 1em;
+      margin-bottom: 1em;
+      margin-left: 0;
+      margin-right: 0;
+      font-weight: bold;
+    }
+
+    h4 {
+      display: block;
+      margin-top: 1.33em;
+      margin-bottom: 1.33em;
+      margin-left: 0;
+      margin-right: 0;
+      font-weight: bold;
+    }
+
+    h5 {
+      display: block;
+      font-size: .83em;
+      margin-top: 1.67em;
+      margin-bottom: 1.67em;
+      margin-left: 0;
+      margin-right: 0;
+      font-weight: bold;
+    }
+
+    h6{
+      display: block;
+      font-size: .83em;
+      margin-top: 1.67em;
+      margin-bottom: 1.67em;
+      margin-left: 0;
+      margin-right: 0;
+      font-weight: bold;
+    }
+
+    /* Nowa linia (hr) */
+    hr {
+      margin: 0.5em auto;
+      border-top: 1px solid #ccc;
+    }
+
+    menu {
+      display: block;
+      list-style-type: disc;
+      margin-top: 1em;
+      margin-bottom: 1em;
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: 40px;
+    }
+
+    /* Pola formularza (input, textarea, select) */
+    input, textarea, select {
+      margin: 0.5em 0;
+      padding: 1px;
+    }
+
+    ol {
+      display: block;
+      list-style-type: decimal;
+      margin-top: 1em;
+      margin-bottom: 1em;
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: 40px;
+    }
+    
+    p {
+      display: block;
+      margin-top: 1em;
+      margin-bottom: 1em;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    ul {
+      display: block;
+      list-style-type: disc;
+      margin-top: 1em;
+      margin-bottom: 1 em;
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: 40px;
+    }
+    table, th, td, tr {
+      border: 1px solid $orange;
+    }
+  }
 }
 
 #confirmDelete {

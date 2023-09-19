@@ -18,12 +18,13 @@ exports.index = asyncHandler(async (req, res, next) => {
 
 // Display list of all Documents.
 exports.document_list = asyncHandler(async (req, res, next) => {
-  const data = await fs.readFile(DATA_FILE_NAME, 'utf-8');
-  const documents = JSON.parse(data);
+  const userId = 1;
+  const userDocuments = await dataService.getUserDocuments(userId);
+  const activeDocuments =  await dataService.getActiveDocuments(userDocuments);
   const page_title = 'Documents list';
   res.render('documents/index', {
     page_title,
-    documents_list: documents,
+    documents_list: activeDocuments,
   });
   //res.send("NOT IMPLEMENTED: document list");
 });

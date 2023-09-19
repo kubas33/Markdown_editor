@@ -46,6 +46,27 @@ class DataService {
     }
   }
 
+  async getUserDocuments(userId) {
+    try {
+      const id = parseInt(userId);
+      const data = await this.readJSONData();
+      const userDocuments = data.filter(doc => doc.user_id === id);
+      return userDocuments;
+    } catch(error) {
+      console.error('Błąd podczas wczytywania dokumentów dla wybranego user_id', error);
+      return null;
+    }
+  }
+
+  async getActiveDocuments(documents) {
+    try {
+      return documents.filter(doc => !doc.is_deleted);
+    } catch(error) {
+      console.error('Błąd podczas wczytywania  aktywnych dokumentów ', error);
+      return null;
+    }
+  }
+
   // Metoda asynchroniczna getDocumentById zwraca dokument o wybranym id
   async getDocumentById(id) {
     try {
