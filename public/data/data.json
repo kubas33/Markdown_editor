@@ -34,5 +34,108 @@
     "created_at": "2023-09-14T06:43:36.634Z",
     "modified_at": "2023-09-14T06:43:36.634Z",
     "is_deleted": false
+  },
+  {
+    "id": 5,
+    "title": "Historia Sztuki",
+    "content": "# Historia Sztuki\r\n\r\n## Sztuka Starożytna\r\n\r\nSztuka starożytna fascynuje swoją piękną i tajemniczą estetyką. Oto kilka znaczących okresów:\r\n\r\n### Starożytny Egipt\r\n\r\nSztuka starożytnego Egiptu zachwyca monumentalnymi piramidami i enigmatycznymi hieroglifami.\r\n\r\n### Antyczna Grecja\r\n\r\nGrecja starożytna dała światu rzeźby klasyczne i architekturę dorycką, jońską i korintyjską.\r\n\r\n## Sztuka Średniowieczna\r\n\r\nSztuka średniowieczna jest pełna religijnych wizerunków i gotyckiej architektury.\r\n\r\n### Katedra w Chartres\r\n\r\nKatedra w Chartres to arcydzieło gotyckiej architektury z pięknymi witrażami i misterium.\r\n\r\n### Ostatnia Wieczerza\r\n\r\nMistrzowskie dzieło Leonarda da Vinci przedstawiające Jezusa i apostołów podczas Ostatniej Wieczerzy.\r\n\r\nTo tylko wstęp do fascynującej historii sztuki. Każdy okres ma swoje unikalne cechy i wpłynął na rozwój ludzkiej kreatywności.",
+    "user_id": 1,
+    "created_at": "2023-09-14T06:50:00.000Z",
+    "modified_at": "2023-09-14T06:50:00.000Z",
+    "is_deleted": false
+  },
+  {
+    "id": 6,
+    "title": "Kuchnia Świata",
+    "content": "# Kuchnia Świata\r\n\r\nŚwiatowa kuchnia jest pełna smaków i aromatów. Oto kilka kulinarnych podróży:\r\n\r\n## Kuchnia włoska\r\n\r\nWłoska kuchnia słynie z makaronów, pizzy, oliwy z oliwek i wybornych win.\r\n\r\n### Spaghetti Carbonara\r\n\r\nSpaghetti Carbonara to danie z makaronu, jajek, bekonu i parmezanu. Proste, ale wyjątkowo smaczne.\r\n\r\n## Kuchnia indyjska\r\n\r\nKuchnia Indii zachwyca różnorodnością curry, naanu i tandoori.\r\n\r\n### Chicken Tikka Masala\r\n\r\nChicken Tikka Masala to popularne danie z kurczaka w sosie pomidorowym z przyprawami.\r\n\r\n## Kuchnia meksykańska\r\n\r\nMeksykańska kuchnia to tacos, guacamole i margarity.\r\n\r\n### Tacos al Pastor\r\n\r\nTacos al Pastor to mięsne tacos z soczystym mięsem i ananasem. Smakoszom przypraw nie brakuje.\r\n\r\nOdkrywanie różnorodności kulinariów to prawdziwa przygoda. Niech smaki świata inspirują Twoje podniebienie.",
+    "user_id": 1,
+    "created_at": "2023-09-14T06:52:00.000Z",
+    "modified_at": "2023-09-14T06:52:00.000Z",
+    "is_deleted": false
+  },
+  {
+    "id": 7,
+    "title": "Sztuka Filmowa",
+    "content": "# Sztuka Filmowa\r\n\r\nSztuka filmowa ma zdolność poruszenia emocji i opowiedzenia niesamowitych historii. Oto kilka znanych filmów:\r\n\r\n## 'Skazani na Shawshank'\r\n\r\nTen klasyczny film ukazuje przyjaźń w więziennej rzeczywistości i dążenie do wolności.\r\n\r\n## 'Ojciec chrzestny'\r\n\r\nSaga rodziny Corleone jest symbolem klasycznego kina gangsterskiego i rodzinnych wartości.\r\n\r\n## 'Gwiezdne Wojny'\r\n\r\nSaga Gwiezdnych Wojen przenosi nas do odległej galaktyki i wciąga w walkę dobra ze złem.\r\n\r\n## 'Forrest Gump'\r\n\r\nHistoria życia Forresta Gumpa jest pełna mądrości i niezapomnianych chwil.\r\n\r\nKino ma potęgę przekazywania historii w niezwykły sposób, a te filmy pozostawiły trwały ślad w historii kinematografii.",
+    "user_id": 1,
+    "created_at": "2023-09-14T06:54:00.000Z",
+    "modified_at": "2023-09-14T06:54:00.000Z",
+    "is_deleted": false
+},
+  {
+    "id": 8,
+    "title": "Eksploracja Kosmosu",
+    "content": "# Eksploracja Kosmosu\r\n\r\nCzłowiek od dawna marzy o badaniu kosmosu i odkrywaniu nieznanych terytoriów nieba. Oto kilka ważnych momentów:\r\n\r\n## Pierwszy krok na Księżycu\r\n\r\nW 1969 roku Neil Armstrong stał się pierwszym człowiekiem, który postawił stopę na Księżycu. To było ogromne osiągnięcie ludzkości.\r\n\r\n## Teleskop Hubble'a\r\n\r\nTeleskop Hubble'a dostarczył nam niezliczone piękne zdjęcia odległych galaktyk i mgławic, pomagając nam zrozumieć kosmos.\r\n\r\n## Mars Rover\r\n\r\nRozmaite misje roverów na Marsie pomogły nam zbadać powierzchnię i atmosferę tej tajemniczej planety.\r\n\r\n## Misja na Pluton\r\n\r\nW 2015 roku statek kosmiczny New Horizons dostarczył nam pierwsze zbliżone zdjęcia Plutona.\r\n\r\nEksploracja kosmosu to jedno z najbardziej ekscytujących przedsięwzięć ludzkości, które ciągle trwa i otwiera przed nami nowe horyzonty.",
+    "user_id": 1,
+    "created_at": "2023-09-14T06:56:00.000Z",
+    "modified_at": "2023-09-14T06:56:00.000Z",
+    "is_deleted": false
+  },
+  {
+    "id": 9,
+    "title": "Sporty Ekstremalne",
+    "content": "# Sporty Ekstremalne\r\n\r\nSporty ekstremalne to wyjątkowa forma aktywności fizycznej, która dostarcza dawkę adrenaliny. Oto kilka z nich:\r\n\r\n## Surfing\r\n\r\nSurfing to sztuka jazdy na falach oceanu. To połączenie umiejętności, siły i kontaktu z naturą.\r\n\r\n## BASE Jumping\r\n\r\nBASE Jumping to skoki spadochronowe z budynków, mostów, klifów i skalnych ścian. To jedna z najbardziej ekstremalnych form skakania ze spadochronem.\r\n\r\n## Snowboarding\r\n\r\nSnowboarding to jazda na desce po stokach narciarskich. To sport, który wymaga zręczności i odwagi.\r\n\r\n## Bungee Jumping\r\n\r\nBungee Jumping to skoki na gumowej linie z dużych wysokości, co wywołuje uczucie wolności i szoku.\r\n\r\nSporty ekstremalne przyciągają ludzi szukających emocji i wyzwań. To świetny sposób na przełamanie własnych ograniczeń.",
+    "user_id": 1,
+    "created_at": "2023-09-14T06:58:00.000Z",
+    "modified_at": "2023-09-14T06:58:00.000Z",
+    "is_deleted": false
+  },
+  {
+    "id": 10,
+    "title": "Sztuka Kulinarna",
+    "content": "# Sztuka Kulinarna\n\nSztuka kulinarna jest fascynującym światem smaków i aromatów. Oto przepis na danie kuchni włoskiej:\n\n## Risotto z Szafranem i Grzybami\n\n**Składniki**:\n\n- 1 szklanka ryżu arborio\n- 1 cebula, posiekana\n- 200 g białych grzybów, pokrojonych\n- 1 łyżka oliwy z oliwek\n- 0.5 g szafranu\n- 0.25 szklanki białego wina\n- 4 szklanki bulionu warzywnego\n- 50 g parmezanu\n- Sól i pieprz do smaku\n\n**Przygotowanie**:\n\n\n1. W rondlu podsmaż cebulę na oliwie aż stanie się szklista.\n\n2. Dodaj ryż i smaż przez 2 minuty, mieszając.\n\n3. Dodaj wino i gotuj, aż alkohol odparuje.\n\n4. Dodaj szafran rozpuszczony w odrobinie gorącego bulionu.\n\n5. Stopniowo dodawaj bulion, mieszając, aż ryż będzie miękki.\n\n6. Dodaj grzyby i gotuj jeszcze 5 minut.\n\n7. Dodaj parmezan, dopraw solą i pieprzem.\n\n8. Podawaj gorące.\n\nTo danie to prawdziwy festiwal smaków i idealne na romantyczną kolację.",
+    "user_id": 1,
+    "created_at": "2023-09-15T10:15:00.000Z",
+    "modified_at": "2023-09-15T10:15:00.000Z",
+    "is_deleted": false
+  },
+  {
+    "id": 11,
+    "title": "Podróże w Czasie",
+    "content": "# Podróże w Czasie\r\n\r\nCzy kiedykolwiek zastanawiałeś się nad możliwością podróży w czasie? Teoria względności Alberta Einsteina otwiera fascynujące perspektywy. Oto kilka pojęć związanym z podróżami w czasie:\r\n\r\n## Czas to Wymiar\r\n\r\nWedług teorii względności, czas jest jednym z czterech wymiarów Wszechświata, obok przestrzeni. Możemy je postrzegać jako jeden spójny byt zwanym czasoprzestrzenią.\r\n\r\n## Paradoksy Czasu\r\n\r\nPodróże w czasie mogą prowadzić do paradoksów, takich jak paradoks dziadka, gdzie podróżnik w czasie mógłby zmienić przeszłość w taki sposób, że nigdy by się nie urodził.\r\n\r\n## Czarne Dziury\r\n\r\nCzarne dziury to obiekty o ogromnej grawitacji, które mogą zakrzywiać czasoprzestrzeń wokół siebie. W ich pobliżu czas płynie inaczej niż dalej od nich.\r\n\r\nPodróże w czasie to temat złożony i fascynujący, który inspiruje naukowców i pisarzy od lat.",
+    "user_id": 1,
+    "created_at": "2023-09-15T10:30:00.000Z",
+    "modified_at": "2023-09-15T10:30:00.000Z",
+    "is_deleted": false
+  },
+  {
+    "id": 12,
+    "title": "Sztuka Abstrakcyjna",
+    "content": "# Sztuka Abstrakcyjna\r\n\r\nSztuka abstrakcyjna jest wyjątkową formą ekspresji artystycznej, która pozostawia wiele miejsca dla interpretacji. Oto dzieło sztuki abstrakcyjnej:\r\n\r\n![Obraz Abstrakcyjny](https://image.witek.pl/101212-medium_default/obraz-abstrakcyjny-100x150-cm-musical-rainbow.jpg)\r\n\r\nTen abstrakcyjny obraz jest pełen kolorów, kształtów i linii, które pozwalają widzowi odkrywać własne emocje i znaczenia. Sztuka abstrakcyjna często stawia pytania i zachęca do refleksji.",
+    "user_id": 1,
+    "created_at": "2023-09-15T11:00:00.000Z",
+    "modified_at": "2023-09-15T11:00:00.000Z",
+    "is_deleted": false
+  },
+  {
+    "id": 13,
+    "title": "Nauka i Technologia",
+    "content": "# Nauka i Technologia\r\n\r\nPostęp w dziedzinie nauki i technologii przekształca nasz świat. Oto najnowsze osiągnięcia:\r\n\r\n## Sztuczna Inteligencja\r\n\r\nSztuczna inteligencja rozwija się w zawrotnym tempie, umożliwiając maszynom myślenie i uczenie się. Znajduje zastosowanie w medycynie, przemyśle i wielu innych dziedzinach.\r\n\r\n## Eksploracja Kosmosu\r\n\r\nNowe misje kosmiczne odkrywają tajemnice kosmosu, docierając nawet do odległych planet i asteroid.\r\n\r\n## Medycyna Genomiczna\r\n\r\nDzięki badaniom nad genomem ludzkim medycyna staje się coraz bardziej precyzyjna, co otwiera drzwi do leczenia wielu chorób genetycznych.\r\n\r\nNauka i technologia napędzają naszą cywilizację do przodu, otwierając nowe możliwości i wyzwania.",
+    "user_id": 1,
+    "created_at": "2023-09-15T11:15:00.000Z",
+    "modified_at": "2023-09-15T11:15:00.000Z",
+    "is_deleted": false
+  },
+  {
+    "id": 14,
+    "title": "Sztuka Teatru",
+    "content": "# Sztuka Teatru\r\n\r\nTeatr to miejsce, gdzie życie sceniczne ożywa. Oto historia teatru i jego znaczenie:\r\n\r\n## Narodziny Teatru\r\n\r\nTeatr ma korzenie sięgające starożytności. Pierwsze przedstawienia odbywały się w Grecji, gdzie aktorzy grali na otwartym amfiteatrze.\r\n\r\n## William Shakespeare\r\n\r\nShakespeare jest uważany za jednego z największych dramaturgów w historii. Jego sztuki, takie jak 'Hamlet' i 'Romeo i Julia', są nadal wystawiane na scenach na całym świecie.\r\n\r\n## Współczesny Teatr\r\n\r\nWspółczesny teatr eksperymentuje z formą i treścią, przekraczając granice konwencji. Nowe technologie, multimedia i interakcja z publicznością wprowadzają teatr w nową erę.\r\n\r\nTeatr to miejsce magii, emocji i refleksji.",
+    "user_id": 1,
+    "created_at": "2023-09-15T11:30:00.000Z",
+    "modified_at": "2023-09-15T11:30:00.000Z",
+    "is_deleted": false
+  },
+  {
+    "id": 15,
+    "title": "Podróże w Czasie",
+    "content": "# Podróże w Czasie\r\n\r\nCzy kiedykolwiek zastanawiałeś się nad możliwością podróży w czasie? Teoria względności Alberta Einsteina otwiera fascynujące perspektywy. Oto kilka pojęć związanym z podróżami w czasie:\r\n\r\n## Czas to Wymiar\r\n\r\nWedług teorii względności, czas jest jednym z czterech wymiarów Wszechświata, obok przestrzeni. Możemy je postrzegać jako jeden spójny byt zwanym czasoprzestrzenią.\r\n\r\n## Paradoksy Czasu\r\n\r\nPodróże w czasie mogą prowadzić do paradoksów, takich jak paradoks dziadka, gdzie podróżnik w czasie mógłby zmienić przeszłość w taki sposób, że nigdy by się nie urodził.\r\n\r\n## Czarne Dziury\r\n\r\nCzarne dziury to obiekty o ogromnej grawitacji, które mogą zakrzywiać czasoprzestrzeń wokół siebie. W ich pobliżu czas płynie inaczej niż dalej od nich.\r\n\r\nPodróże w czasie to temat złożony i fascynujący, który inspiruje naukowców i pisarzy od lat.\r\n\r\n## Tabela Markdown\r\n\r\nOto przykładowa tabela z informacjami o podróżach w czasie:\r\n\r\n| Data       | Wydarzenie                                |\r\n|------------|------------------------------------------|\r\n| 2023-09-01 | Odkrycie pierwszej podróży w czasie      |\r\n| 2030-05-15 | Eksperyment z cofaniem się w czasie      |\r\n| 2042-11-30 | Otwarcie pierwszego biura podróży w czasie|"
+    ,
+    "user_id": 1,
+    "created_at": "2023-09-15T11:30:00.000Z",
+    "modified_at": "2023-09-15T11:30:00.000Z",
+    "is_deleted": false
   }
+  
+
+
 ]
