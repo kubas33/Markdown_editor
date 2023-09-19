@@ -21,7 +21,6 @@ exports.document_list = asyncHandler(async (req, res, next) => {
   const data = await fs.readFile(DATA_FILE_NAME, 'utf-8');
   const documents = JSON.parse(data);
   const page_title = 'Documents list';
-  //console.log(documents[0]);
   res.render('documents/index', {
     page_title,
     documents_list: documents,
@@ -90,8 +89,9 @@ exports.document_delete = asyncHandler(async (req, res, next) => {
   const { id } = req.params;
 
   try {
-    await dataService.deleteDocumentById(id);
-    res.status(204);
+    //await dataService.deleteDocumentById(id);
+    await dataService.softDeleteDocumentById(id);
+    res.status(200).json({ success: true, message: 'Dokument usunięto pomyślnie' });
   } catch (e) {
     console.error('Błąd podczas usuwanie dokumentu: ', e);
     res.status(500).json({ success: false, error: 'Wystąpił błąd serwera' });

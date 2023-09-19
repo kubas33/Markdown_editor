@@ -53,7 +53,6 @@ class DataService {
       const documentId = Number(id);
       // Wczytujemy dane z pliku JSON
       const data = await this.readJSONData();
-      console.log(documentId);
       // Wyszukujemy dokument o wybranym id
       const document = data.find((doc) => doc.id === documentId);
       // Jeśli dokument nie został znaleziony, zwracamy null
@@ -83,14 +82,11 @@ class DataService {
       // Wczytujemy dane z pliku JSON
       const data = await this.readJSONData();
       const documentIndex = await this.getIndexOfDocument(Number(id));
-      console.log(documentIndex);
       if (documentIndex !== -1) {
         // Znajdujemy indeks dokumentu o wybranym id
         data[documentIndex] = updatedDocument;
-        console.log(data);
         // Zapisujemy zmodyfikowane dane do pliku JSON
         await this.writeJSONData(data);
-        //console.log('cache:', this.cachedData);
         return {
           success: true,
           message: `Dokument o id: ${id} został zaktualizowany`,
@@ -129,6 +125,26 @@ class DataService {
         };
       }
     } catch (error) {
+      console.error('Błąd podczas usuwania dokumentu: ', error);
+      return {
+        success: false,
+        error: `Błąd podczas usuwania dokumentu o id: ${id}`,
+      };
+    }
+  }
+
+  async softDeleteDocumentById(id) {
+    try {
+     const document = await this.getDocumentById(id);
+     document.is_deleted = true;
+      const response = await this.updateDocumentById(id, document);
+      if (response.success){
+        return {
+          success: true,
+          message: `Dokument o id: ${id} został usunięty`,
+        };
+      }
+    }catch (error) {
       console.error('Błąd podczas usuwania dokumentu: ', error);
       return {
         success: false,

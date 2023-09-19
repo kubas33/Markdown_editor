@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const delBtn = document.querySelector('[data-delete-url]');
     const confirmDelBtn = document.querySelector('#confirm-delete-modal-btn');
     const confirmDelForm = document.querySelector('#confirm-delete-form');
+    // eslint-disable-next-line no-undef
     const confirmDelModal = new bootstrap.Modal(
     document.getElementById('confirmDelete')
   );
@@ -18,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const response = await fetch(url, {
           method: 'PUT',
           headers: {
+            // eslint-disable-next-line quotes
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
