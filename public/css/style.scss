@@ -90,6 +90,7 @@ select {
 body {
   background-color: $black;
   color: $white;
+  font-family: 'Roboto Mono', monospace;
 }
 
 .navbar {
@@ -244,6 +245,17 @@ body {
   border-radius: 5px;
   text-align: center;
   color: $white;
+}
+
+.show-trash {
+  &:hover {
+    background-color: transparent;
+    svg {
+      fill: $orange;
+      scale: 1.35;
+      transition: all 0.3s;
+    }
+  }
 }
 
 @media (max-width: 768px) {
