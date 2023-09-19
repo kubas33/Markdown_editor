@@ -12083,6 +12083,12 @@ body {
   border: 3px solid #FFFFFF;
 }
 
+.login-navbar {
+  display: flex;
+  flex-direction: row;
+  font-size: 0.8rem;
+}
+
 .styled-table {
   border-collapse: collapse;
   margin: 25px auto;
@@ -12092,6 +12098,13 @@ body {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   color: #ffffff;
   border: 1px solid #FCA311;
+}
+.styled-table .confirm-del-btn:hover {
+  scale: 1.2;
+  transition: all 0.2s;
+}
+.styled-table .confirm-del-btn:focus, .styled-table .confirm-del-btn:focus-visible {
+  border: 2px solid #FCA311;
 }
 .styled-table thead tr {
   background-color: rgba(252, 163, 17, 0.9);

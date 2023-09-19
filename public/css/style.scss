@@ -125,6 +125,12 @@ body {
   }
 }
 
+.login-navbar {
+  display: flex;
+  flex-direction: row;
+  font-size: .8rem;
+}
+
 .styled-table {
     border-collapse: collapse;
     margin: 25px auto;
@@ -134,6 +140,16 @@ body {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     color: #ffffff;
     border: 1px solid $orange;
+
+    .confirm-del-btn {
+      &:hover{
+        scale: 1.2;
+        transition: all 0.2s;
+      }
+      &:focus, &:focus-visible {
+        border: 2px solid $orange;
+      }
+    }
 
     thead tr {
       //background-color: color.scale($rain, $lightness: -45%);
