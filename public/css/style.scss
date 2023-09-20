@@ -95,7 +95,9 @@ body {
 
 .navbar {
   background-color: $blue;
-  
+  .active {
+    color: $orange!important;
+  }
 }
 
 .show-header{

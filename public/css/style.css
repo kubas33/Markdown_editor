@@ -12058,6 +12058,9 @@ body {
 .navbar {
   background-color: #14213D;
 }
+.navbar .active {
+  color: #FCA311 !important;
+}
 
 .show-header {
   background-color: #4d4d4d;
