@@ -2,6 +2,7 @@ const express = require('./node_modules/express');
 const hbs = require('express-handlebars');
 const mainRouter = require('./routes/mainRouter');
 const documentsRouter = require('./routes/documentsRouter');
+const authRouter = require('./routes/auth');
 const { handlebarsHelpers } = require('./helpers/handlebars-helpers');
 
 const app = express();
@@ -17,6 +18,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use('/', mainRouter);
+app.use('/', authRouter);
 app.use('/documents', documentsRouter);
 
 app.listen(port, () => {

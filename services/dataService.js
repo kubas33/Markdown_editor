@@ -1,5 +1,5 @@
-// Importujemy moduł fs.promises, który umożliwia korzystanie z asynchronicznych operacji na plikach
-const { readFile, writeFile } = require('fs').promises;
+
+import {readJSONData, writeJSONData} from './fileService';
 const Document = require('../models/documentModel');
 
 // Klasa DataService
@@ -9,36 +9,15 @@ class DataService {
     this.dataFilePath = dataFilePath;
   }
 
-  // Metoda asynchroniczna readJSONData wczytuje dane z pliku JSON
-  async readJSONData() {
-    try {
-      const data = await readFile(this.dataFilePath, 'utf-8');
-      return JSON.parse(data);
-    } catch (error) {
-      console.error('Błąd podczas wczytywania danych JSON: ', error);
-      throw error; // Rzuć wyjątek, aby obsłużyć go na wyższym poziomie
-    }
-  }
-
-  // Metoda asynchroniczna writeJSONData zapisuje dane do pliku JSON
-  async writeJSONData(data) {
-    try {
-      await writeFile(this.dataFilePath, JSON.stringify(data, null, 2), 'utf-8');
-    } catch (error) {
-      console.error('Błąd podczas zapisywania danych JSON: ', error);
-      throw error; // Rzuć wyjątek, aby obsłużyć go na wyższym poziomie
-    }
-  }
-
   // Metoda asynchroniczna createDocument dodaje nowy dokument do bazy danych
   async createDocument(newDocument) {
     try {
       // Wczytujemy dane z pliku JSON
-      const data = await this.readJSONData();
+      const data = await readJSONData(this.dataFilePath);
       // Dodajemy nowy dokument do tablicy z danymi
       data.push(newDocument);
       // Zapisujemy zmodyfikowane dane do pliku JSON
-      await this.writeJSONData(data);
+      await writeJSONData(this.dataFilePath, data);
       return true;
     } catch (error) {
       console.error('Błąd podczas zapisu dokumentu: ', error);
@@ -49,7 +28,7 @@ class DataService {
   async getUserDocuments(userId) {
     try {
       const id = parseInt(userId);
-      const data = await this.readJSONData();
+      const data = await readJSONData(this.dataFilePath);
       const userDocuments = data.filter(doc => doc.user_id === id);
       return userDocuments;
     } catch(error) {
@@ -73,7 +52,7 @@ class DataService {
       // Konwertuj id na liczbę wewnątrz funkcji
       const documentId = Number(id);
       // Wczytujemy dane z pliku JSON
-      const data = await this.readJSONData();
+      const data = await readJSONData(this.dataFilePath);
       // Wyszukujemy dokument o wybranym id
       const document = data.find((doc) => doc.id === documentId);
       // Jeśli dokument nie został znaleziony, zwracamy null
@@ -101,13 +80,13 @@ class DataService {
   async updateDocumentById(id, updatedDocument) {
     try {
       // Wczytujemy dane z pliku JSON
-      const data = await this.readJSONData();
+      const data = await readJSONData(this.dataFilePath);
       const documentIndex = await this.getIndexOfDocument(Number(id));
       if (documentIndex !== -1) {
         // Znajdujemy indeks dokumentu o wybranym id
         data[documentIndex] = updatedDocument;
         // Zapisujemy zmodyfikowane dane do pliku JSON
-        await this.writeJSONData(data);
+        await writeJSONData(this.dataFilePath, data);
         return {
           success: true,
           message: `Dokument o id: ${id} został zaktualizowany`,
@@ -130,11 +109,11 @@ class DataService {
   // Metoda asynchroniczna deleteDocumentById usuwa dokument o wybranym id
   async deleteDocumentById(id) {
     try {
-      const data = await this.readJSONData();
+      const data = await readJSONData(this.dataFilePath);
       const documentIndex = await this.getIndexOfDocument(id);
       if (documentIndex !== -1) {
         data.splice(documentIndex, 1);
-        await this.writeJSONData(data);
+        await writeJSONData(this.dataFilePath, data);
         return {
           success: true,
           message: `Dokument o id: ${id} został usunięty`,
@@ -179,7 +158,7 @@ class DataService {
     try {
       const documentId = Number(id);
       // Wczytujemy dane z pliku JSON
-      const data = await this.readJSONData();
+      const data = await readJSONData(this.dataFilePath);
       // Wyszukujemy indeks dokumentu o wybranym id
       const documentIndex = data.findIndex((doc) => doc.id === documentId);
       // Jeśli dokument nie został znaleziony, zwracamy -1
@@ -196,7 +175,7 @@ class DataService {
   async generateDocumentId() {
     try {
       // Wczytujemy dane z pliku JSON
-      const data = await this.readJSONData();
+      const data = await readJSONData(this.dataFilePath);
       // Zwracamy ostatnie id z tablicy z danymi zwiększone o 1
       const lastId = data.length;
       return lastId + 1;
