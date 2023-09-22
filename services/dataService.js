@@ -19,8 +19,8 @@ class DataService {
     await this.fileService.writeData(this.data);
   }
 
-  findEntityByProperty(property, value) {
-    return this.data.find(entity => entity[property] === value);
+  findEntityByProperty(property, value, data) {
+    return data.find(entity => entity[property] === value);
   }
 
   /**

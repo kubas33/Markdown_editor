@@ -1,11 +1,13 @@
 const asyncHandler = require('../node_modules/express-async-handler');
 const path = require('path');
-const DataService = require('../services/dataService');
-const User = require('../models/userModel');
 const crypto = require('crypto');
+const DataService = require('../services/dataService');
+const FileService = require ('../services/fileService.js');
+const User = require('../models/userModel');
 
-const USER_FILE_NAME = path.join(process.cwd(), 'db', 'users.json');
-const dataService = new DataService(USER_FILE_NAME);
+const USERS_FILE_NAME = path.join(process.cwd(), 'db', 'users.json');
+const dataService = new DataService(USERS_FILE_NAME);
+const fileService = new FileService(USERS_FILE_NAME);
 
 exports.user_list = asyncHandler(async (req, res, next) => {
 
@@ -19,7 +21,8 @@ exports.signup = async function(username, password, email) {
   const salt = crypto.randomBytes(16);
   const hashedPassword = crypto.pbkdf2Sync(password, salt, 310000, 32, 'sha256');
 
-  const id = dataService.generateEntityId();
+  const id = await dataService.generateEntityId();
+  const users = await fileService.readData();
 
   const newUser = new User(
     id,
@@ -32,8 +35,8 @@ exports.signup = async function(username, password, email) {
     false // isDeleted
   );
 
-  dataService.data.push(newUser);
-  await dataService.saveData();
+  users.push(newUser);
+  await fileService.writeData(users);
 
   return newUser;
 };
