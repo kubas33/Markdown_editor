@@ -19,8 +19,8 @@ exports.index = asyncHandler(async (req, res, next) => {
 // Display list of all Documents.
 exports.document_list = asyncHandler(async (req, res, next) => {
   const userId = 1;
-  const userDocuments = await dataService.getUserDocuments(userId);
-  const activeDocuments =  await dataService.getActiveDocuments(userDocuments);
+  const userDocuments = await dataService.getEntitiesByUserId(userId);
+  const activeDocuments =  await dataService.getActiveEntities(userDocuments);
   const page_title = 'Documents list';
   res.render('documents/index', {
     page_title,
@@ -57,7 +57,7 @@ exports.document_create_post = asyncHandler(async (req, res, next) => {
     const { title, content } = req.body;
     const userId = 1;
     const now = new Date().toISOString();
-    const id = await dataService.generateDocumentId();
+    const id = await dataService.generateEntityId();
 
     const newDocument = new Document(
       id,
@@ -68,7 +68,7 @@ exports.document_create_post = asyncHandler(async (req, res, next) => {
       now,
       false
     );
-    await dataService.createDocument(newDocument);
+    await dataService.createEntity(newDocument);
     res.redirect('/documents');
   } catch (error) {
     console.error('Błąd podczas dodawania nowego dokumentu: ', error);
@@ -91,7 +91,7 @@ exports.document_delete = asyncHandler(async (req, res, next) => {
 
   try {
     //await dataService.deleteDocumentById(id);
-    await dataService.softDeleteDocumentById(id);
+    await dataService.softDeleteEntityById(id);
     res.status(200).json({ success: true, message: 'Dokument usunięto pomyślnie' });
   } catch (e) {
     console.error('Błąd podczas usuwanie dokumentu: ', e);
