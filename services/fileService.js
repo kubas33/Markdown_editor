@@ -1,7 +1,7 @@
 const { readFile, writeFile } = require('fs').promises;
 
 
-export class FileService {
+class FileService {
 
 
 
@@ -46,4 +46,4 @@ export class FileService {
 }
 
 
-//module.exports = FileService;
+module.exports = FileService;

@@ -1,5 +1,5 @@
 
-import {readJSONData, writeJSONData} from './fileService';
+const {readJSONData, writeJSONData} = require ('./fileService');
 const Document = require('../models/documentModel');
 
 // Klasa DataService
