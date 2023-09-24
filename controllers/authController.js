@@ -6,6 +6,7 @@ var LocalStrategy = require('passport-local').Strategy;
 const userController = require('./userController');
 const DataService = require ('../services/dataService.js');
 const FileService = require ('../services/fileService.js');
+
 const USERS_FILE_NAME = path.join(process.cwd(), 'db', 'users.json');
 const dataService = new DataService(USERS_FILE_NAME);
 const fileService = new FileService(USERS_FILE_NAME);
@@ -43,5 +44,7 @@ exports.signup = async function(req, res, next) {
 };
 
 exports.login = passport.authenticate('local', {
-  successRedirect: '/', failureRedirect: '/auth/login'
+  successRedirect: '/',
+  failureRedirect: '/auth/login',
+  failureMessage: true
 });

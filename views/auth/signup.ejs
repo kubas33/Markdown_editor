@@ -1,6 +1,9 @@
 <div class="mx-auto mt-5 text-center auth-form p-5">
     <h1 class="pb-3">Sign up</h1>
     <form action="/auth/signup" method="post" class="d-flex flex-column gap-4 p-2 text-start">
+        <% if (message.length > 0) { %>
+            <div class="alert alert-danger"><%= message %></div>
+        <% } %>
         <section class="d-flex flex-column gap-2">
             <label for="username">Username</label>
             <input id="username" name="username" type="text" autocomplete="username" required>

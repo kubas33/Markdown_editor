@@ -3,6 +3,7 @@ const expressLayouts = require('express-ejs-layouts');
 const session = require('express-session');
 const passport = require('passport');
 var FileStore = require('session-file-store')(session);
+const flash = require('connect-flash');
 
 
 const mainRouter = require('./routes/mainRouter');
@@ -33,6 +34,7 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }));
+app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 

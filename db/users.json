@@ -18,5 +18,15 @@
     "created_at": "2023-09-22T19:18:07.826Z",
     "modified_at": "2023-09-22T19:18:07.826Z",
     "is_deleted": false
+  },
+  {
+    "id": 3,
+    "username": "kuba",
+    "password": "03d3d7bfe570da060e96117f684c308657cf0aebd98f333e25f6ab8194f6d4fd",
+    "salt": "f96e20af1ed4f59872ad0748e2971620",
+    "email": "kuba@wp.pl",
+    "created_at": "2023-09-24T20:16:02.743Z",
+    "modified_at": "2023-09-24T20:16:02.743Z",
+    "is_deleted": false
   }
 ]
