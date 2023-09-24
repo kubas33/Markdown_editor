@@ -1,16 +1,19 @@
-<h1>Sign up</h1>
-<form action="/auth/signup" method="post">
-    <section>
-        <label for="username">Username</label>
-        <input id="username" name="username" type="text" autocomplete="username" required>
-    </section>
-    <section>
-        <label for="password">Password</label>
-        <input id="password" name="password" type="password" autocomplete="password" required>
-    </section>
-        <section>
-        <label for="email">email</label>
-        <input id="email" name="email" type="email" autocomplete="email" required>
-    </section>
-    <button type="submit">Sign up</button>
-</form>
+<div class="mx-auto mt-5 text-center auth-form p-5">
+    <h1 class="pb-3">Sign up</h1>
+    <form action="/auth/signup" method="post" class="d-flex flex-column gap-4 p-2 text-start">
+        <section class="d-flex flex-column gap-2">
+            <label for="username">Username</label>
+            <input id="username" name="username" type="text" autocomplete="username" required>
+        </section>
+        <section class="d-flex flex-column gap-2">
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" autocomplete="password" required>
+        </section>
+        <section class="d-flex flex-column gap-2">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+        </section>
+        <button class="btn btn-orange w-50 mx-auto" type="submit">Sign up</button>
+    </form>
+    <p class="small mt-3">Already have an account? <a href="/auth/login">Login here</a></p>
+</div>

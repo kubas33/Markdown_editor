@@ -437,6 +437,24 @@ body {
   color: $white;
 }
 
+.auth-form {
+  background-color: $blue;
+  max-width: 400px;
+  border-radius: 2rem;
+  -webkit-border-radius: 2rem;
+  -moz-border-radius: 2rem;
+  -ms-border-radius: 2rem;
+  -o-border-radius: 2rem;
+
+  a {
+    color: $orange;
+
+    &:hover {
+      color: scale-color($color: $orange, $lightness: -20%,)
+    }
+  }
+}
+
 .show-trash {
   &:hover {
     background-color: transparent;
