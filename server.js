@@ -29,7 +29,9 @@ app.use(express.urlencoded({ extended: false }));
 passport.use(authController.localStrategy);
 app.use(session({
   store: new FileStore(fileStoreOptions),
-  secret: 'your_secret', resave: false, saveUninitialized: true
+  secret: 'your_secret',
+  resave: false,
+  saveUninitialized: true
 }));
 app.use(passport.initialize());
 app.use(passport.session());
