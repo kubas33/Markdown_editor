@@ -33,13 +33,14 @@ exports.document_list = asyncHandler(async (req, res, next) => {
 exports.document_detail = asyncHandler(async (req, res, next) => {
   const data = await fs.readFile(DATA_FILE_NAME, 'utf-8');
   const documents = JSON.parse(data);
-  const document = documents.find((doc) => doc.id == req.params.id);
+  const doc = documents.find((doc) => doc.id == req.params.id);
   //const contentMarkdown = document.content.replace(/\n/g, '<br>');
-  const contentMarkdown = document.content;
+  console.log({documents});
+  const contentMarkdown = doc.content;
 
-  const contentHtml = md.render(document.content);
+  const contentHtml = md.render(doc.content);
   res.render(`documents/show`, {
-    document,
+    document: doc,
     contentHtml,
     contentMarkdown,
   });

@@ -1,5 +1,5 @@
 const express = require('./node_modules/express');
-const hbs = require('express-handlebars');
+const expressLayouts = require('express-ejs-layouts');
 const session = require('express-session');
 const passport = require('passport');
 var FileStore = require('session-file-store')(session);
@@ -8,7 +8,7 @@ var FileStore = require('session-file-store')(session);
 const mainRouter = require('./routes/mainRouter');
 const documentsRouter = require('./routes/documentsRouter');
 const authRouter = require('./routes/authRouter');
-const { handlebarsHelpers } = require('./helpers/handlebars-helpers');
+const { ejsHelpers } = require('./helpers/ejsHelpers');
 const authController = require('./controllers/authController');
 
 const app = express();
@@ -17,9 +17,10 @@ const fileStoreOptions = {
   ttl: 7200,
 };
 
-app.engine('.hbs', hbs.engine({ extname: '.hbs', helpers: handlebarsHelpers }));
-app.set('view engine', '.hbs');
-app.set('views', './views');
+app.use(expressLayouts);
+app.set('layout', './layouts/main');
+app.set('view engine', 'ejs');
+app.locals.ejsHelpers = ejsHelpers;
 
 app.use(express.static('public'));
 
