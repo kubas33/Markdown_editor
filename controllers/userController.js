@@ -19,7 +19,11 @@ exports.user_detail = asyncHandler(async (req, res, next) => {
 
 exports.signup = async function(username, password, email) {
   const salt = crypto.randomBytes(16);
+  console.log('Salt:', salt.toString('hex'));
   const hashedPassword = crypto.pbkdf2Sync(password, salt, 310000, 32, 'sha256');
+  console.log('Hashed Password:', hashedPassword.toString('hex'));
+  const passwordBuffer = Buffer.from((hashedPassword.toString('hex')), 'hex');
+  console.log({passwordBuffer});
 
   const id = await dataService.generateEntityId();
   const users = await fileService.readData();

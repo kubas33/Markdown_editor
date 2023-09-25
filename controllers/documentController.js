@@ -56,7 +56,7 @@ exports.document_create_get = asyncHandler(async (req, res, next) => {
 exports.document_create_post = asyncHandler(async (req, res, next) => {
   try {
     const { title, content } = req.body;
-    const userId = 1;
+    const userId = req.user.id;
     const now = new Date().toISOString();
     const id = await dataService.generateEntityId();
 

@@ -1,11 +1,16 @@
 const express = require('express');
 const router = express.Router();
+const ensureLogIn = require('connect-ensure-login').ensureLoggedIn;
 const document_controller = require('../controllers/documentController');
+
+const ensureLoggedIn = ensureLogIn('auth/login');
+
+router.use(ensureLoggedIn);
 
 router.get('/', document_controller.document_list);
 
 // GET request for creating a document. NOTE This must come before routes that display document (uses id).
-router.get('/create', document_controller.document_create_get);
+router.get('/create',  document_controller.document_create_get);
 
 // POST request for creating document.
 router.post('/create', document_controller.document_create_post);

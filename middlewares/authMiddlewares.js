@@ -17,7 +17,7 @@ const authMiddlewares = {
             } else if (existingUser.email === email) {
                 req.flash('error', 'Email already exists');
             }
-            return res.redirect('/signup');
+            return res.redirect('/auth/signup');
         }
         next();
     }

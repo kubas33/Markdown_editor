@@ -3,11 +3,17 @@
     <form action="/auth/login" method="post" class="d-flex flex-column gap-4 p-2 text-start">
         <section class="d-flex flex-column gap-2">
             <label for="username">Username</label>
-            <input id="username" name="username" type="text" autocomplete="username" required autofocus>
+            <input id="username" name="username" type="text" autocomplete="username" aria-describedby="username-error" required autofocus>
+            <% if (message.length > 0 && message == 'Incorrect username') { %>
+                <p class="error" id="username-error" aria-live="polite"><%= message %></p>
+            <% } %>
         </section>
         <section class="d-flex flex-column gap-2">
             <label for="password">Password</label>
-            <input id="password" name="password" type="password" autocomplete="password" required>
+            <input id="password" name="password" type="password" autocomplete="password" aria-describedby="password-error"  required>
+            <% if (message.length > 0 && message == 'Incorrect password') { %>
+                <p class="error" id="password-error" aria-live="polite"><%= message %></p>
+            <% } %>
         </section>
         <button class="btn btn-orange w-50 mx-auto" type="submit">Login</button>
     </form>

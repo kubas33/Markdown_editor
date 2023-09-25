@@ -11,18 +11,36 @@ const USERS_FILE_NAME = path.join(process.cwd(), 'db', 'users.json');
 const dataService = new DataService(USERS_FILE_NAME);
 const fileService = new FileService(USERS_FILE_NAME);
 
-exports.localStrategy = new LocalStrategy(async function verify(username, password, cb){
+exports.localStrategy = new LocalStrategy({
+  passReqToCallback: true
+}, async function verify(req, username, password, cb){
   try {
     const users = await fileService.readData();
     const user = dataService.findEntityByProperty('username', username, users);
+    console.log('Found User:', user);
+    const passwordBuffer = Buffer.from(password, 'hex');
 
     if (!user) {
-      return cb(null, false, { message: 'Incorrect username or password.'});
+      req.flash('error', 'Incorrect username');
+      return cb(null, false, {
+        //status: 401,
+        //message: ['username', 'Incorrect username']
+        message: 'Incorrect username'
+      });
     }
-    crypto.pbkdf2(password, user.salt, 310000, 32, 'sha256', function(err, hashedPassword) {
+    
+    const saltBuffer = Buffer.from(user.salt, 'hex');
+
+    crypto.pbkdf2(passwordBuffer, saltBuffer, 310000, 32, 'sha256', function(err, hashedPassword) {
       if (err) { return cb(err); }
       if (!crypto.timingSafeEqual(Buffer.from(user.password, 'hex'), hashedPassword)) {
-        return cb(null, false, { message: 'Incorrect username or password.' });
+        console.log({hashedPassword});
+        req.flash('error', 'Incorrect password');
+        return cb(null, false, {
+          //status: 401,
+          //message: ['password', 'Incorrect password']
+          message: 'Incorrect password'
+        });
       }
       return cb(null, user);
     });
@@ -44,7 +62,15 @@ exports.signup = async function(req, res, next) {
 };
 
 exports.login = passport.authenticate('local', {
-  successRedirect: '/',
-  failureRedirect: '/auth/login',
-  failureMessage: true
-});
+    successRedirect: '/',
+    failureRedirect: '/auth/login',
+    failureMessage: true,
+    //failureFlash: true,
+  });
+
+exports.logout = function(req, res, next) {
+  req.logout(function(err) {
+    if (err) { return next(err); }
+    res.redirect('/');
+  });
+};

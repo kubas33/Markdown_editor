@@ -6,7 +6,6 @@ const authController = require('../controllers/authController');
 const DataService = require ('../services/dataService.js');
 const FileService = require ('../services/fileService.js');
 const { authMiddlewares  } = require ('../middlewares/authMiddlewares');
-const flash = require('connect-flash');
 
 const router = express.Router();
 
@@ -23,9 +22,9 @@ passport.serializeUser(function(user, done) {
   });
 });
 
-passport.deserializeUser(async function(id, done) {
+passport.deserializeUser(async function(serializedUser, done) {
   const users = await fileService.readData();
-  const user = users.find(user => user.id === id);
+  const user = users.find(user => user.id === serializedUser.id);
   if (user) {
     done(null, user);
   } else {
@@ -34,7 +33,9 @@ passport.deserializeUser(async function(id, done) {
 });
 
 router.get('/login', function(req, res, next) {
-  res.render('auth/login');
+  res.render('auth/login', {
+    'message': req.flash('error')
+  });
 });
 
 router.post('/login', authController.login);
@@ -46,5 +47,7 @@ router.get('/signup', function(req, res, next) {
 });
 
 router.post('/signup', authMiddlewares.isUnique, authController.signup);
+
+router.post('/logout', authController.logout);
 
 module.exports = router;
