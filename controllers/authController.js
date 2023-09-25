@@ -17,14 +17,11 @@ exports.localStrategy = new LocalStrategy({
   try {
     const users = await fileService.readData();
     const user = dataService.findEntityByProperty('username', username, users);
-    console.log('Found User:', user);
-    const passwordBuffer = Buffer.from(password, 'hex');
+    const passwordBuffer = Buffer.from(password);
 
     if (!user) {
       req.flash('error', 'Incorrect username');
       return cb(null, false, {
-        //status: 401,
-        //message: ['username', 'Incorrect username']
         message: 'Incorrect username'
       });
     }
@@ -34,11 +31,8 @@ exports.localStrategy = new LocalStrategy({
     crypto.pbkdf2(passwordBuffer, saltBuffer, 310000, 32, 'sha256', function(err, hashedPassword) {
       if (err) { return cb(err); }
       if (!crypto.timingSafeEqual(Buffer.from(user.password, 'hex'), hashedPassword)) {
-        console.log({hashedPassword});
         req.flash('error', 'Incorrect password');
         return cb(null, false, {
-          //status: 401,
-          //message: ['password', 'Incorrect password']
           message: 'Incorrect password'
         });
       }
