@@ -87,6 +87,7 @@ select {
   }
 }
 
+
 body {
   background-color: $black;
   color: $white;
@@ -100,6 +101,27 @@ body {
   }
 }
 
+.error {
+  color: red;
+  font-size: small;
+  font-weight: bolder;
+}
+
+.input-section:has(.error) {
+  input {
+    border: 2px solid red;
+    border-radius: 2px;
+    background-color: scale-color($color: red,  $lightness: 75%, $alpha: 20%);
+  }
+}
+
+.input-section {
+  input {
+    border-radius: 5px;
+    
+  }
+}
+
 .show-header{
   background-color: scale-color($color: $black, $lightness: 30%,);
   
@@ -108,6 +130,18 @@ body {
 
 .show-dropdown button::after{
   content: none;
+}
+
+.dropdown-menu {
+  background-color:  color.scale($blue, $lightness: 5%);
+  border: none;
+}
+
+.input-blue {
+  background-color: color.scale($gray, $lightness: 30%, $alpha: -20%);
+}
+.input-blue::placeholder {
+  color: color.scale($blue, $lightness: 5%);
 }
 
 .btn-orange {

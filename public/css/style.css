@@ -12062,12 +12062,45 @@ body {
   color: #FCA311 !important;
 }
 
+.error {
+  color: red;
+  font-size: small;
+  font-weight: bolder;
+}
+
+.input-section:has(.error) input {
+  border: 2px solid red;
+  border-radius: 2px;
+  background-color: #ffbfbf;
+}
+
+.input-section input {
+  border-radius: 5px;
+}
+
 .show-header {
   background-color: #4d4d4d;
 }
 
 .show-dropdown button::after {
   content: none;
+}
+
+.dropdown-menu {
+  background-color: #192a4d;
+  border: none;
+}
+
+.input-blue {
+  background-color: rgba(237, 237, 237, 0.8);
+}
+
+.input-blue::-moz-placeholder {
+  color: #192a4d;
+}
+
+.input-blue::placeholder {
+  color: #192a4d;
 }
 
 .btn-orange {
