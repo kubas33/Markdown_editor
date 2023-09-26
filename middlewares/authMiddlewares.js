@@ -1,3 +1,4 @@
+const passport = require('passport');
 const FileService = require ('../services/fileService.js');
 const path = require('path');
 const USERS_FILE_NAME = path.join(process.cwd(), 'db', 'users.json');
@@ -20,7 +21,15 @@ const authMiddlewares = {
             return res.redirect('/auth/signup');
         }
         next();
-    }
+    },
+    isLoggedIn: function (req, res, next) {
+        if (req.isAuthenticated()) {
+            return next();
+        } else {
+            req.flash('info', 'You must be logged in');
+            res.redirect('auth/login');
+        }
+    }   
 };
 
 module.exports = {

@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const ensureLogIn = require('connect-ensure-login').ensureLoggedIn;
+const { authMiddlewares  } = require ('../middlewares/authMiddlewares');
 const document_controller = require('../controllers/documentController');
 
-const ensureLoggedIn = ensureLogIn('auth/login');
+const ensureLoggedIn = authMiddlewares.isLoggedIn;
 
 router.use(ensureLoggedIn);
 

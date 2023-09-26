@@ -1,9 +1,7 @@
 const express = require('express');
 const passport = require('passport');
 const path = require('path');
-const userController = require('../controllers/userController');
 const authController = require('../controllers/authController');
-const DataService = require ('../services/dataService.js');
 const FileService = require ('../services/fileService.js');
 const { authMiddlewares  } = require ('../middlewares/authMiddlewares');
 
@@ -11,7 +9,6 @@ const router = express.Router();
 
 const USERS_FILE_NAME = path.join(process.cwd(), 'db', 'users.json');
 const fileService = new FileService(USERS_FILE_NAME);
-const dataService = new DataService(USERS_FILE_NAME);
 
 passport.serializeUser(function(user, done) {
   process.nextTick(function() {
@@ -34,7 +31,8 @@ passport.deserializeUser(async function(serializedUser, done) {
 
 router.get('/login', function(req, res, next) {
   res.render('auth/login', {
-    'message': req.flash('error')
+    'message': req.flash('error'),
+    'info': req.flash('info')
   });
 });
 
