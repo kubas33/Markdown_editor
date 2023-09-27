@@ -80,9 +80,7 @@
                             </div>
                         </span>
                         <% } else { %>
-                        <form action="auth/logout" method="post">
-                            <button type='submit'>logout</button>
-                        </form>
+                            <%- include('../partials/navbar-logout.ejs') %>
                         <% } %>
                     </div>
                 </div>

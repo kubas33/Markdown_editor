@@ -1,0 +1,21 @@
+<div class="navbar navbar-text navbar-logout">
+  <span>Hello,</span>
+  <span class="dropdown">
+    <a href="#" class="nav-link dropdown-toggle link-orange"
+      data-bs-toggle="dropdown">
+      <b><%= user.username %></b>
+      <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end p-2 mt-2">
+      <li class="dropdown-item">
+        <form action="auth/logout" method="post" class="logout form">
+          <button class="btn-link btn dropdown-item" type='submit'>Logout</button>
+        </form>
+      </li>
+      <li class="dropdown-item">
+        <a href="/auth/settings">Settings</a>
+      </li>
+
+    </ul>
+  </span>
+</div>

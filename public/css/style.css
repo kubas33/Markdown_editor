@@ -12344,6 +12344,10 @@ body {
   border: 1px solid #FCA311;
 }
 
+.navbar-logout {
+  font-size: 1.2rem;
+}
+
 #confirmDelete .modal-content {
   background-color: #14213D;
 }
@@ -12379,6 +12383,13 @@ body {
   overflow: auto;
   height: 100%;
   border: none;
+}
+
+.link-orange {
+  color: #FCA311;
+}
+.link-orange:hover {
+  color: #ba7402;
 }
 
 #title-input {
